@@ -1,4 +1,4 @@
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\interrupt\interrupt.c 67 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\interrupt\interrupt.c 79 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\interrupt\interrupt.c 110 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\interrupt\interrupt.c 122 : call of function without prototype
+Warning[2058] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\interrupt\interrupt.c 67 : call of function without prototype
+Warning[2058] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\interrupt\interrupt.c 79 : call of function without prototype
+Warning[2058] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\interrupt\interrupt.c 110 : call of function without prototype
+Warning[2058] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\interrupt\interrupt.c 122 : call of function without prototype

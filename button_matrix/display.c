@@ -211,14 +211,14 @@ void SetHour()
     timeBlink = (timeBlink + 1)%10;
     if(timeBlink < 5 && enableBlink())
         LcdPrintStringS(0,4,"  ");
-    if(key_code[0]>0 || (key_code[0] >= 10 && key_code[0]%2 == 1))
+    if((key_code[0] >= 5 && key_code[0]%2 == 1))
     {
         hour = hour + 1;
         if(hour > 23)
             hour = 0;  
         write_ds1307(ADDRESS_HOUR, hour);
     }
-    if(key_code[1]>0 || (key_code[1] >= 10 && key_code[1]%2 == 1))
+    if((key_code[1] >= 10 && key_code[1]%2 == 1))
     {
         hour = hour - 1;
         if(hour < 0)
@@ -231,14 +231,14 @@ void setMinute()
     timeBlink = (timeBlink + 1)%10;
     if(timeBlink < 5 && enableBlink())
         LcdPrintStringS(0,7,"  ");
-    if(key_code[0]>0 || (key_code[0] >= 10 && key_code[0]%2 == 1))
+    if((key_code[0] >= 10 && key_code[0]%2 == 1))
     {
         minute = minute + 1;
         if(minute > 59)
             minute = 0;  
         write_ds1307(ADDRESS_MINUTE, minute);
     }
-    if(key_code[1]>0 || (key_code[1] >= 10 && key_code[1]%2 == 1))
+    if((key_code[1] >= 10 && key_code[1]%2 == 1))
     {
         minute = minute - 1;
         if(minute < 0)
@@ -250,15 +250,15 @@ void setDay()
 {
     timeBlink = (timeBlink + 1)%10;
     if(timeBlink < 5 && enableBlink())
-        LcdPrintStringS(0,0,"  ");
-    if(key_code[0]>0 || (key_code[0] >= 10 && key_code[0]%2 == 1))
+        LcdPrintStringS(0,0,"   ");
+    if((key_code[0] >= 10 && key_code[0]%2 == 1))
     {
         day = day + 1;
         if(day > 7)
             day = 1;  
         write_ds1307(ADDRESS_DAY, day);
     }
-    if(key_code[1]>0 || (key_code[1] >= 10 && key_code[1]%2 == 1))
+    if((key_code[1] >= 10 && key_code[1]%2 == 1))
     {
         day = day - 1;
         if(day < 1)
@@ -271,14 +271,14 @@ void setDate()
     timeBlink = (timeBlink + 1)%10;
     if(timeBlink < 5 && enableBlink())
         LcdPrintStringS(1,6,"  ");
-    if(key_code[0]>0 || (key_code[0] >= 10 && key_code[0]%2 == 1))
+    if((key_code[0] >= 10 && key_code[0]%2 == 1))
     {
         date = date + 1;
         if(date > 31)
             date = 1;  
         write_ds1307(ADDRESS_DATE, date);
     }
-    if(key_code[1]>0 || (key_code[1] >= 10 && key_code[1]%2 == 1))
+    if((key_code[1] >= 10 && key_code[1]%2 == 1))
     {
         date = date - 1;
         if(date < 1)
@@ -290,15 +290,15 @@ void setMonth()
 {
     timeBlink = (timeBlink + 1)%10;
     if(timeBlink < 5 && enableBlink())
-        LcdPrintStringS(1,2,"  ");
-    if(key_code[0]>0 || (key_code[0] >= 10 && key_code[0]%2 == 1))
+        LcdPrintStringS(1,2,"   ");
+    if((key_code[0] >= 10 && key_code[0]%2 == 1))
     {
         month = month + 1;
         if(month > 12)
             month = 1;  
         write_ds1307(ADDRESS_MONTH, month);
     }
-    if(key_code[1]>0 || (key_code[1] >= 10 && key_code[1]%2 == 1))
+    if((key_code[1] >= 10 && key_code[1]%2 == 1))
     {
         month = month - 1;
         if(month < 1)
@@ -311,14 +311,14 @@ void setYear()
     timeBlink = (timeBlink + 1)%10;
     if(timeBlink < 5 && enableBlink())
         LcdPrintStringS(1,11,"  ");
-    if(key_code[0]>0 || (key_code[0] >= 10 && key_code[0]%2 == 1))
+    if((key_code[0] >= 10 && key_code[0]%2 == 1))
     {
         year = year + 1;
         if(year > 99)
             year = 0;  
         write_ds1307(ADDRESS_YEAR, year);
     }
-    if(key_code[1]>0 || (key_code[1] >= 10 && key_code[1]%2 == 1))
+    if((key_code[1] >= 10 && key_code[1]%2 == 1))
     {
         year = year - 1;
         if(year < 0)
@@ -334,7 +334,13 @@ void adjustTime() {
     {
         case INIT:         
             display_Time();
-            statusSetTime = SET_HOUR;
+            statusSetTime = SET_DAY;
+            break;
+        case SET_DAY:
+            display_Time();
+            setDay();
+            if((key_code[2] >= 10 && key_code[2]%2 == 1))
+                statusSetTime = SET_HOUR;
             break;
         case SET_HOUR:
             display_Time();
@@ -346,13 +352,7 @@ void adjustTime() {
             display_Time();
             setMinute();
             if((key_code[2] >= 10 && key_code[2]%2 == 1))
-                statusSetTime = SET_DAY;        
-            break;
-        case SET_DAY:
-            display_Time();
-            setDay();
-            if((key_code[2] >= 10 && key_code[2]%2 == 1))
-                statusSetTime = SET_DATE;
+                statusSetTime = SET_DATE;        
             break;
         case SET_DATE:
             setDate();
@@ -370,8 +370,8 @@ void adjustTime() {
             setYear();
             display_Time();
             if((key_code[2] >= 10 && key_code[2]%2 == 1))
-                statusSetTime = SET_HOUR;
-            break;          
+                statusSetTime = SET_DAY;
+            break;   
         default:
             break;
     }

@@ -1,4 +1,4 @@
 build/default/production/timer/timer.o:  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/timer/timer.c  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/timer/timer.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/timer/timer.c  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/timer/timer.h  \
 

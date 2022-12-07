@@ -1,6 +1,6 @@
 build/default/production/uart/uart.o:  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/uart/uart.c  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/uart/uart.h  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/timer/timer.h  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/lcd/lcd.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/uart/uart.c  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/uart/uart.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/timer/timer.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/lcd/lcd.h  \
 

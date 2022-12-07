@@ -1,12 +1,12 @@
 build/default/production/main.o:  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/main.c  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/timer/timer.h  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/button_matrix/button.h  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/lcd/lcd.h  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/uart/uart.h  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/adc/adc.h  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/main.h  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/interrupt/interrupt.h  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/button_matrix/clock.h  \
-	E:/TKLL/Bai9_Uart_EMS_Sensor_Calib/button_matrix/global.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/main.c  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/timer/timer.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/button_matrix/button.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/lcd/lcd.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/uart/uart.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/adc/adc.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/main.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/interrupt/interrupt.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/button_matrix/clock.h  \
+	E:/tkll/da_tkll/LOGIC-DESGIN-PROJECT/button_matrix/global.h  \
 

@@ -94,6 +94,11 @@ void fsm() {
             break;
         case MODE_6:
             adjustTime();
+            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
+                status = MODE_2;
+                numberOfPushButton = 0;
+                key_code[3] = 0;
+            }
             break;
     }
 }
