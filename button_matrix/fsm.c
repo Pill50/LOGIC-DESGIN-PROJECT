@@ -16,6 +16,10 @@ void fsm() {
                 status = MODE_2;
                 key_code[2] = 0;
             }
+            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
+                status = MODE_6;
+                key_code[3] = 0;
+            }
             break;
         case MODE_2: // display menu
             if((key_code[1] >= 10 && key_code[1]%2 == 1)) {
@@ -38,8 +42,13 @@ void fsm() {
                 status = MODE_5;
                 key_code[4] = 0;
             }
+            if((key_code[5] >= 10 && key_code[5]%2 == 1)) {
+                numberOfPushButton = 0;
+                status = MODE_6;
+                key_code[4] = 0;
+            }
             if((key_code[0] >= 10 && key_code[0]%2 == 1)) {
-                numberOfPushButton = (numberOfPushButton+1)%3;
+                numberOfPushButton = (numberOfPushButton+1)%4;
                 if(numberOfPushButton == 0) numberOfPushButton = 1;
                 key_code[0] = 0;
             }
@@ -77,11 +86,14 @@ void fsm() {
             break;
         case MODE_5: // display alarm
             display_Alarm();
-             if((key_code[2] >= 10 && key_code[2]%2 == 1)) {
+            if((key_code[2] >= 10 && key_code[2]%2 == 1)) {
                 status = MODE_2;
                 numberOfPushButton = 0;
                 key_code[2] = 0;
             }
+            break;
+        case MODE_6:
+            adjustTime();
             break;
     }
 }

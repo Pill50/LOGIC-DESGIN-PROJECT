@@ -1,7 +1,8 @@
 Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\button_matrix\fsm.c 9 : call of function without prototype
 Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\button_matrix\fsm.c 12 : call of function without prototype
 Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\button_matrix\fsm.c 13 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\button_matrix\fsm.c 46 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\button_matrix\fsm.c 63 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\button_matrix\fsm.c 66 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\button_matrix\fsm.c 79 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\button_matrix\fsm.c 55 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\button_matrix\fsm.c 72 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\button_matrix\fsm.c 75 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\button_matrix\fsm.c 88 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\button_matrix\fsm.c 96 : call of function without prototype

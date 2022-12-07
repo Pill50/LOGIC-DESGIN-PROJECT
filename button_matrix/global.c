@@ -3,6 +3,8 @@
 int status = 0;
 int inputThreshold = 0;
 int numberOfPushButton = 0;
+int statusSetTime = 0;
+int timeBlink = 0;
 
 unsigned int simulateCnt;
 unsigned int simulateValue;

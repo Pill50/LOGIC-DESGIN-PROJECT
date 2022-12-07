@@ -9,6 +9,7 @@
 #define	DISPLAY_H
 
 #include <p18f4620.h>
+#include "global.h"
 #include "button.h"
 #include "clock.h"
 #include "../lcd/lcd.h"
@@ -18,6 +19,13 @@ void display_Menu();
 void display_Set_Threshold();
 void display_input_val();
 void display_Alarm();
+void adjustTime();
+void setHour();
+void setMinute();
+void setDay();
+void setDate();
+void setMonth();
+void setYear();
 
 #endif	/* DISPLAY_H */
 

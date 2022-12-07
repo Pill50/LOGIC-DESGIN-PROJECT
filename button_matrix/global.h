@@ -14,11 +14,22 @@
 #define MODE_3 3
 #define MODE_4 4
 #define MODE_5 5
+#define MODE_6 6
+
+
+#define SET_HOUR 12
+#define SET_MINUTE 13
+#define SET_DAY 14
+#define SET_DATE 15
+#define SET_MONTH 16
+#define SET_YEAR 17
 
 
 extern int inputThreshold;
 extern int status;
 extern int numberOfPushButton;
+extern int statusSetTime;
+extern int timeBlink;
 
 extern unsigned int simulateCnt;
 extern unsigned int simulateValue;

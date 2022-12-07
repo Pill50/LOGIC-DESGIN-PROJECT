@@ -1,17 +1,93 @@
 #include "display.h"
-#include "global.h"
 
 void display_Time() {
     LcdClearS();
-    LcdPrintStringS(0,0,"H  :  M  :  S");
-    LcdPrintNumS(1,0,hour/10);
-    LcdPrintNumS(1,1,hour%10);
+    switch(day)
+    {
+        case 1:
+            LcdPrintStringS(0,0,"SUN");
+            break;
+        case 2:
+            LcdPrintStringS(0,0,"MON");
+            break;
+        case 3:
+            LcdPrintStringS(0,0,"TUE");
+            break;
+        case 4:
+            LcdPrintStringS(0,0,"WED");
+            break;
+        case 5:
+            LcdPrintStringS(0,0,"THU");
+            break;
+        case 6:
+            LcdPrintStringS(0,0,"FRI");
+            break;
+        case 7:
+            LcdPrintStringS(0,0,"SAT");
+            break;
+        default:
+            LcdPrintStringS(0,0,"ERR");
+            break;    
+    }
+    LcdPrintNumS(0,4,hour/10);
+    LcdPrintNumS(0,5,hour%10);
+    LcdPrintStringS(0,6,":");
+    LcdPrintNumS(0,7,minute/10);
+    LcdPrintNumS(0,8,minute%10);
+    LcdPrintStringS(0,9,":");
+    LcdPrintNumS(0,10,second/10);
+    LcdPrintNumS(0,11,second%10);
     
-    LcdPrintNumS(1,6,minute/10);
-    LcdPrintNumS(1,7,minute%10);
-    
-    LcdPrintNumS(1,12,second/10);
-    LcdPrintNumS(1,13,second%10);
+    switch(month)
+    {
+        case 1:
+            LcdPrintStringS(1,2,"JAN");
+            break;
+        case 2:
+            LcdPrintStringS(1,2,"FEB");
+            break;
+        case 3:
+            LcdPrintStringS(1,2,"MAR");
+            break;
+        case 4:
+            LcdPrintStringS(1,2,"APR");
+            break;
+        case 5:
+            LcdPrintStringS(1,2,"MAY");
+            break;
+        case 6:
+            LcdPrintStringS(1,2,"JUN");
+            break;
+        case 7:
+            LcdPrintStringS(1,2,"JUL");
+            break;
+        case 8:
+            LcdPrintStringS(1,2,"AUG");
+            break;
+        case 9:
+            LcdPrintStringS(1,2,"SEP");
+            break;
+        case 10:
+            LcdPrintStringS(1,2,"OCT");
+            break;
+        case 11:
+            LcdPrintStringS(1,2,"NOV");
+            break;
+        case 12:
+            LcdPrintStringS(1,2,"DEC");
+            break;
+        default:
+            LcdPrintStringS(1,2,"ERR");
+            break;    
+    }
+
+    LcdPrintStringS(1,5," ");
+    LcdPrintNumS(1,6,date/10);
+    LcdPrintNumS(1,7,date%10);
+    LcdPrintStringS(1,8," ");
+    LcdPrintNumS(1,9,20);
+    LcdPrintNumS(1,11,year/10);
+    LcdPrintNumS(1,12,year%10);
 }
 
 void display_Menu() {
@@ -28,6 +104,10 @@ void display_Menu() {
         case 2:
             LcdPrintStringS(0,0,"3. SET ADC");
             LcdPrintStringS(1,0,"4. SEE ALARM");
+            break;
+        case 3:
+            LcdPrintStringS(0,0,"5. ADJUST TIME");
+//            LcdPrintStringS(1,0,"4. SEE ALARM");
             break;
         default: 
             numberOfPushButton = 0;
@@ -118,4 +198,182 @@ void display_Alarm() {
     }
 }
 
+unsigned char enableBlink(void)
+{
+    if (key_code[5] == 0 && key_code[9] == 0)
+        return 1;
+    else 
+        return 0;
+}
+
+void SetHour()
+{
+    timeBlink = (timeBlink + 1)%10;
+    if(timeBlink < 5 && enableBlink())
+        LcdPrintStringS(0,4,"  ");
+    if(key_code[0]>0 || (key_code[0] >= 10 && key_code[0]%2 == 1))
+    {
+        hour = hour + 1;
+        if(hour > 23)
+            hour = 0;  
+        write_ds1307(ADDRESS_HOUR, hour);
+    }
+    if(key_code[1]>0 || (key_code[1] >= 10 && key_code[1]%2 == 1))
+    {
+        hour = hour - 1;
+        if(hour < 0)
+            hour = 23;
+        write_ds1307(ADDRESS_HOUR, hour);
+    }    
+}
+void setMinute()
+{
+    timeBlink = (timeBlink + 1)%10;
+    if(timeBlink < 5 && enableBlink())
+        LcdPrintStringS(0,7,"  ");
+    if(key_code[0]>0 || (key_code[0] >= 10 && key_code[0]%2 == 1))
+    {
+        minute = minute + 1;
+        if(minute > 59)
+            minute = 0;  
+        write_ds1307(ADDRESS_MINUTE, minute);
+    }
+    if(key_code[1]>0 || (key_code[1] >= 10 && key_code[1]%2 == 1))
+    {
+        minute = minute - 1;
+        if(minute < 0)
+            minute = 59;
+        write_ds1307(ADDRESS_MINUTE, minute);
+    }    
+}
+void setDay()
+{
+    timeBlink = (timeBlink + 1)%10;
+    if(timeBlink < 5 && enableBlink())
+        LcdPrintStringS(0,0,"  ");
+    if(key_code[0]>0 || (key_code[0] >= 10 && key_code[0]%2 == 1))
+    {
+        day = day + 1;
+        if(day > 7)
+            day = 1;  
+        write_ds1307(ADDRESS_DAY, day);
+    }
+    if(key_code[1]>0 || (key_code[1] >= 10 && key_code[1]%2 == 1))
+    {
+        day = day - 1;
+        if(day < 1)
+            day = 7;
+        write_ds1307(ADDRESS_DAY, day);
+    }    
+}
+void setDate()
+{
+    timeBlink = (timeBlink + 1)%10;
+    if(timeBlink < 5 && enableBlink())
+        LcdPrintStringS(1,6,"  ");
+    if(key_code[0]>0 || (key_code[0] >= 10 && key_code[0]%2 == 1))
+    {
+        date = date + 1;
+        if(date > 31)
+            date = 1;  
+        write_ds1307(ADDRESS_DATE, date);
+    }
+    if(key_code[1]>0 || (key_code[1] >= 10 && key_code[1]%2 == 1))
+    {
+        date = date - 1;
+        if(date < 1)
+            date = 31;
+        write_ds1307(ADDRESS_DATE, date);
+    }    
+}
+void setMonth()
+{
+    timeBlink = (timeBlink + 1)%10;
+    if(timeBlink < 5 && enableBlink())
+        LcdPrintStringS(1,2,"  ");
+    if(key_code[0]>0 || (key_code[0] >= 10 && key_code[0]%2 == 1))
+    {
+        month = month + 1;
+        if(month > 12)
+            month = 1;  
+        write_ds1307(ADDRESS_MONTH, month);
+    }
+    if(key_code[1]>0 || (key_code[1] >= 10 && key_code[1]%2 == 1))
+    {
+        month = month - 1;
+        if(month < 1)
+            month = 12;
+        write_ds1307(ADDRESS_MONTH, month);
+    }    
+}
+void setYear()
+{
+    timeBlink = (timeBlink + 1)%10;
+    if(timeBlink < 5 && enableBlink())
+        LcdPrintStringS(1,11,"  ");
+    if(key_code[0]>0 || (key_code[0] >= 10 && key_code[0]%2 == 1))
+    {
+        year = year + 1;
+        if(year > 99)
+            year = 0;  
+        write_ds1307(ADDRESS_YEAR, year);
+    }
+    if(key_code[1]>0 || (key_code[1] >= 10 && key_code[1]%2 == 1))
+    {
+        year = year - 1;
+        if(year < 0)
+            year = 99;
+        write_ds1307(ADDRESS_YEAR, year);
+    }    
+}
+
+void adjustTime() {
+    LcdClearS();
+    Read_time();
+    switch(statusSetTime)
+    {
+        case INIT:         
+            display_Time();
+            statusSetTime = SET_HOUR;
+            break;
+        case SET_HOUR:
+            display_Time();
+            SetHour();
+            if((key_code[2] >= 10 && key_code[2]%2 == 1))
+                statusSetTime = SET_MINUTE;        
+            break;
+        case SET_MINUTE:
+            display_Time();
+            setMinute();
+            if((key_code[2] >= 10 && key_code[2]%2 == 1))
+                statusSetTime = SET_DAY;        
+            break;
+        case SET_DAY:
+            display_Time();
+            setDay();
+            if((key_code[2] >= 10 && key_code[2]%2 == 1))
+                statusSetTime = SET_DATE;
+            break;
+        case SET_DATE:
+            setDate();
+            display_Time();
+            if((key_code[2] >= 10 && key_code[2]%2 == 1))
+                statusSetTime = SET_MONTH;
+            break;
+        case SET_MONTH:
+            setMonth();
+            display_Time();
+            if((key_code[2] >= 10 && key_code[2]%2 == 1))
+                statusSetTime = SET_YEAR;
+            break;
+        case SET_YEAR:
+            setYear();
+            display_Time();
+            if((key_code[2] >= 10 && key_code[2]%2 == 1))
+                statusSetTime = SET_HOUR;
+            break;          
+        default:
+            break;
+    }
+}
 

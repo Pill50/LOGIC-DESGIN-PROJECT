@@ -1,6 +1,6 @@
 #include "clock.h"
 
-char second=30, minute=2, hour=17, day=12, date=12, month=12, year=22;
+char second=30, minute=2, hour=17, day=5, date=12, month=12, year=22;
 void Set_Time()
 {
     write_ds1307(ADDRESS_SECOND, second);
