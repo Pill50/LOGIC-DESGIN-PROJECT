@@ -15,7 +15,7 @@
 #define MODE_4 4
 #define MODE_5 5
 #define MODE_6 6
-
+#define MODE_7 7
 
 #define SET_HOUR 12
 #define SET_MINUTE 13
@@ -30,6 +30,10 @@ extern int status;
 extern int numberOfPushButton;
 extern int statusSetTime;
 extern int timeBlink;
+extern int index_set;
+extern int alarm_flag;
+extern int day_of_month[12];
+extern char hour_alarm, minute_alarm;
 
 extern unsigned int simulateCnt;
 extern unsigned int simulateValue;

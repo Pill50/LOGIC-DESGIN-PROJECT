@@ -22,13 +22,13 @@ unsigned char isButtonSetTempMin();
 unsigned char isButtonSetTempMax();
 void CalibTemp(void);
 
-void GetSensorPH(void);
-void GetSensorSS(void);
-void GetSensorCOD(void);
-void GetSensorNH4(void);
-void GetSensorNO3(void);
-void GetSensorTMP(void);
-void GetSensorFLOW(void);
+void GetSensor(void);
+//void GetSensorSS(void);
+//void GetSensorCOD(void);
+//void GetSensorNH4(void);
+//void GetSensorNO3(void);
+//void GetSensorTMP(void);
+//void GetSensorFLOW(void);
 
 void SimulateFull_Gimat(void);
 
@@ -53,7 +53,7 @@ void main(void)
 //        }
         scan_key_matrix();
         fsm();
-        GetSensorPH();
+        GetSensor();
         SimulateFull_Gimat();
         DisplayLcdScreen();
 	}
@@ -145,28 +145,29 @@ unsigned char isButtonSetTempMax()
         return 0;
 }
 
-void GetSensorPH(void)
+void GetSensor(void)
 {
     int i;
-    for(i=0; i < 7; i++) {
-        rawSensor[i] = get_adc_value(0);
-        adc_value[i] = rawSensor[i];
-    }
-//    rawSensor[0] = get_adc_value(0);
-//    dataOfSensorPH[indexOfData[0]] = rawSensor[0];
-//    indexOfData[0] = (indexOfData[0] + 1)%50;
-//    //giai thuat lay 10 frame
-//    indexOfData_10[0] = indexOfData[0];
-//    averageSensor[0] = 0;
-//    for (i=0;i<50;i++)
-//    {
-//        averageSensor[0] = averageSensor[0] + dataOfSensorPH[indexOfData_10[0]];
-//        if (indexOfData_10[0] == 0)
-//            indexOfData_10[0] = 50 - 1;
-//        else
-//            indexOfData_10[0] --;
+//    for(i=0; i < 7; i++) {
+//        rawSensor[i] = get_adc_value(i);
+//        adc_value[i] = rawSensor[i];
 //    }
-//    averageSensor[0] = averageSensor[0]/50;
+    
+    ;
+    dataOfSensorPH[indexOfData[0]] = rawSensor[0];
+    indexOfData[0] = (indexOfData[0] + 1)%50;
+    //giai thuat lay 10 frame
+    indexOfData_10[0] = indexOfData[0];
+    averageSensor[0] = 0;
+    for (i=0;i<50;i++)
+    {
+        averageSensor[0] = averageSensor[0] + dataOfSensorPH[indexOfData_10[0]];
+        if (indexOfData_10[0] == 0)
+            indexOfData_10[0] = 50 - 1;
+        else
+            indexOfData_10[0] --;
+    }
+    averageSensor[0] = averageSensor[0]/50;
 }
 
 void SimulateFull_Gimat(void)
@@ -178,12 +179,12 @@ void SimulateFull_Gimat(void)
 //        adcValue = averageSensor_0;
         //temp = yMin + (long)(adcValue - 0) * (yMax - yMin) / (1023 - 0);
         pH_value = pH_value_min + (long)(adc_value[0] - 0) * (pH_value_max - pH_value_min) / (1023 - 0);
-        SS_value = 0 + (long)(adc_value[1] - 0) * (10000 - 0) / (1023 - 0);
-        COD_value = 0 + (long)(adc_value[2] - 0) * (2000 - 0) / (1023 - 0);
-        NH4_value = 1000 + (long)(adc_value[3] - 0) * (5000 - 1000) / (1023 - 0);
-        NO3_value = 2000 + (long)(adc_value[4] - 0) * (10000 - 2000) / (1023 - 0);
-        TMP_value = TMP_value_min + (long)(adc_value[5] - TMP_adc_min) * (TMP_value_max - TMP_value_min) / (TMP_adc_max - TMP_adc_min);
-        FLOW_value = 0 + (long)(adc_value[6] - 0) * (36000 - 0) / (1023 - 0);
+//        SS_value = 0 + (long)(adc_value[1] - 0) * (10000 - 0) / (1023 - 0);
+//        COD_value = 0 + (long)(adc_value[2] - 0) * (2000 - 0) / (1023 - 0);
+//        NH4_value = 1000 + (long)(adc_value[3] - 0) * (5000 - 1000) / (1023 - 0);
+//        NO3_value = 2000 + (long)(adc_value[4] - 0) * (10000 - 2000) / (1023 - 0);
+//        TMP_value = TMP_value_min + (long)(adc_value[5] - TMP_adc_min) * (TMP_value_max - TMP_value_min) / (TMP_adc_max - TMP_adc_min);
+//        FLOW_value = 0 + (long)(adc_value[6] - 0) * (36000 - 0) / (1023 - 0);
 
         UartSendString("20.04.16 09:12:07  pH=  ");
         UartSendNumPercent(pH_value);

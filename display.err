@@ -76,3 +76,8 @@ Warning[2054] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\button_matrix\display.c 313 :
 Warning[2058] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\button_matrix\display.c 331 : call of function without prototype
 Warning[2058] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\button_matrix\display.c 332 : call of function without prototype
 Warning[2058] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\button_matrix\display.c 347 : call of function without prototype
+Warning[2058] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\button_matrix\display.c 486 : call of function without prototype
+Warning[2058] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\button_matrix\display.c 490 : call of function without prototype
+Warning[2058] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\button_matrix\display.c 500 : call of function without prototype
+Warning[2054] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\button_matrix\display.c 501 : suspicious pointer conversion
+Warning[2058] E:\tkll\da_tkll\LOGIC-DESGIN-PROJECT\button_matrix\display.c 503 : call of function without prototype

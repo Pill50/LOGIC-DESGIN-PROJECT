@@ -163,7 +163,7 @@ void display_input_val() {
     LcdPrintStringS(1,0,"3. Save");
 }
 
-void display_Alarm() {
+void display_Warning() {
     LcdClearS();
     if(pH_value > threshold[0]) {
         LcdPrintStringS(0,0,"PH=  ");
@@ -377,3 +377,128 @@ void adjustTime() {
     }
 }
 
+void increase(){
+    switch(index_set){
+        case 1: 
+            hour++;
+            if (hour > 23){
+                hour = 0;
+            }
+            break;
+        case 2:
+            minute++;
+            if (minute > 59){
+                minute = 0;
+            }
+            break;
+        case 3:
+            second++;
+            if (second > 59){
+                second = 0;
+            }
+            break;
+        case 4:
+            day++;
+            if (day > 7){
+                day = 1;
+            }
+            break;
+        case 5:
+            date = date+1;
+            if(date > day_of_month[month-1]){
+                date = 1;
+            }
+            break;
+        case 6:
+            month++;
+            if (month > 12){
+                month = 1;
+            }
+            break;
+        case 7:
+            year++;
+            break;
+        default:
+            break;
+    }
+}
+
+
+void decrease(){
+    switch(index_set){
+        case 1: 
+            hour--;
+            if (hour < 0){
+                hour = 23;
+            }
+            break;
+        case 2:
+            minute--;
+            if (minute < 0){
+                minute = 59;
+            }
+            break;
+        case 3:
+            second--;
+            if (second < 0){
+                second = 59;
+            }
+            break;
+        case 4:
+            day--;
+            if (day < 1){
+                day = 7;
+            }
+            break;
+        case 5:
+            date = date -1;
+            if(date < 1 ){
+                date = day_of_month[month-1];
+            }
+            break;
+        case 6:
+            month--;
+            if (month < 1){
+                month = 12;
+            }
+            break;
+        case 7:
+            year--;
+            if (year < 0){
+                year = 0;
+            }
+            break;
+        default:
+            break;
+    }
+}
+
+
+
+void display_Alarm(){
+    if (key_code[0] >= 10 && key_code[0]%2 == 1){
+        index_set = (index_set+1)%8;
+        if (index_set == 0) index_set++;
+            key_code[0] = 0;
+    }
+   
+    if (key_code[6] >= 10 && key_code[6]%2 == 1){
+            increase();
+            key_code[6] = 0;
+    }
+    if (key_code[4] >= 10 && key_code[4]%2 == 1){
+           decrease();
+            key_code[4] = 0;
+        }
+    if (key_code[1] >= 10 && key_code[1]%2 == 1){
+        hour_alarm = hour;
+        minute_alarm = minute;
+        status = MODE_1;
+        alarm_flag = 1;
+        key_code[1] = 0;
+    }
+    LcdClearS();
+    LcdPrintStringS(0,0,"Moi dat bao thuc");
+//    Display_alarm();
+    DisplayLcdScreen();    
+} 

@@ -84,8 +84,8 @@ void fsm() {
                 key_code[2] = 0;
             }
             break;
-        case MODE_5: // display alarm
-            display_Alarm();
+        case MODE_5: // display warning
+            display_Warning();
             if((key_code[2] >= 10 && key_code[2]%2 == 1)) {
                 status = MODE_2;
                 numberOfPushButton = 0;
@@ -98,6 +98,14 @@ void fsm() {
                 status = MODE_2;
                 numberOfPushButton = 0;
                 key_code[3] = 0;
+            }
+            break;
+        case MODE_7:
+            display_Alarm();
+            if((key_code[2] >= 10 && key_code[2]%2 == 1)) {
+                status = MODE_2;
+                numberOfPushButton = 0;
+                key_code[2] = 0;
             }
             break;
     }

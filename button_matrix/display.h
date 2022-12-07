@@ -18,6 +18,7 @@ void display_Time();
 void display_Menu();
 void display_Set_Threshold();
 void display_input_val();
+void display_Warning();
 void display_Alarm();
 void adjustTime();
 void setHour();
