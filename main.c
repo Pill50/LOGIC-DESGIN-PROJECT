@@ -51,6 +51,7 @@ void main(void)
 //            scan_key_matrix();
 //            SetTimer3_ms(50);
 //        }
+        blink = 1-blink;
         scan_key_matrix();
         fsm();
         GetSensor();
@@ -147,27 +148,27 @@ unsigned char isButtonSetTempMax()
 
 void GetSensor(void)
 {
+    // there are something wrong of setting port
     int i;
-//    for(i=0; i < 7; i++) {
-//        rawSensor[i] = get_adc_value(i);
-//        adc_value[i] = rawSensor[i];
-//    }
-    
-    ;
-    dataOfSensorPH[indexOfData[0]] = rawSensor[0];
-    indexOfData[0] = (indexOfData[0] + 1)%50;
-    //giai thuat lay 10 frame
-    indexOfData_10[0] = indexOfData[0];
-    averageSensor[0] = 0;
-    for (i=0;i<50;i++)
-    {
-        averageSensor[0] = averageSensor[0] + dataOfSensorPH[indexOfData_10[0]];
-        if (indexOfData_10[0] == 0)
-            indexOfData_10[0] = 50 - 1;
-        else
-            indexOfData_10[0] --;
+    for(i=0; i < 7; i++) {
+        rawSensor[i] = get_adc_value(i);
+        adc_value[i] = rawSensor[i];
     }
-    averageSensor[0] = averageSensor[0]/50;
+    
+//    dataOfSensorPH[indexOfData[0]] = rawSensor[0];
+//    indexOfData[0] = (indexOfData[0] + 1)%50;
+//    //giai thuat lay 10 frame
+//    indexOfData_10[0] = indexOfData[0];
+//    averageSensor[0] = 0;
+//    for (i=0;i<50;i++)
+//    {
+//        averageSensor[0] = averageSensor[0] + dataOfSensorPH[indexOfData_10[0]];
+//        if (indexOfData_10[0] == 0)
+//            indexOfData_10[0] = 50 - 1;
+//        else
+//            indexOfData_10[0] --;
+//    }
+//    averageSensor[0] = averageSensor[0]/50;
 }
 
 void SimulateFull_Gimat(void)

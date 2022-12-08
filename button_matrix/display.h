@@ -20,6 +20,7 @@ void display_Set_Threshold();
 void display_input_val();
 void display_Warning();
 void display_Alarm();
+void display_Setting_Alarm();
 void adjustTime();
 void setHour();
 void setMinute();

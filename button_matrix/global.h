@@ -24,12 +24,11 @@
 #define SET_MONTH 16
 #define SET_YEAR 17
 
-
+extern int blink;
 extern int inputThreshold;
 extern int status;
 extern int numberOfPushButton;
 extern int statusSetTime;
-extern int timeBlink;
 extern int index_set;
 extern int alarm_flag;
 extern int day_of_month[12];

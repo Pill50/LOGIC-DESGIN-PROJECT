@@ -198,25 +198,20 @@ void display_Warning() {
     }
 }
 
-unsigned char enableBlink(void)
-{
-    if (key_code[5] == 0 && key_code[9] == 0)
-        return 1;
-    else 
-        return 0;
-}
-
 void SetHour()
 {
-    timeBlink = (timeBlink + 1)%10;
-    if(timeBlink < 5 && enableBlink())
-        LcdPrintStringS(0,4,"  ");
+    LcdClearS();
+    if(blink == 1) {
+        LcdPrintStringS(0,4,"_");
+        LcdPrintStringS(0,5,"_");
+    }       
     if((key_code[0] >= 5 && key_code[0]%2 == 1))
     {
         hour = hour + 1;
         if(hour > 23)
             hour = 0;  
         write_ds1307(ADDRESS_HOUR, hour);
+        key_code[0] = 0;
     }
     if((key_code[1] >= 10 && key_code[1]%2 == 1))
     {
@@ -224,19 +219,23 @@ void SetHour()
         if(hour < 0)
             hour = 23;
         write_ds1307(ADDRESS_HOUR, hour);
+        key_code[1] = 0;
     }    
 }
 void setMinute()
 {
-    timeBlink = (timeBlink + 1)%10;
-    if(timeBlink < 5 && enableBlink())
-        LcdPrintStringS(0,7,"  ");
+    LcdClearS();
+    if(blink == 1) {
+        LcdPrintStringS(0,7,"_");
+        LcdPrintStringS(0,8,"_");
+    }
     if((key_code[0] >= 10 && key_code[0]%2 == 1))
     {
         minute = minute + 1;
         if(minute > 59)
             minute = 0;  
         write_ds1307(ADDRESS_MINUTE, minute);
+        key_code[0] = 0;
     }
     if((key_code[1] >= 10 && key_code[1]%2 == 1))
     {
@@ -244,19 +243,24 @@ void setMinute()
         if(minute < 0)
             minute = 59;
         write_ds1307(ADDRESS_MINUTE, minute);
+        key_code[1] = 0;
     }    
 }
 void setDay()
 {
-    timeBlink = (timeBlink + 1)%10;
-    if(timeBlink < 5 && enableBlink())
-        LcdPrintStringS(0,0,"   ");
+    LcdClearS();
+    if(blink == 1) {
+        LcdPrintStringS(0,0,"_");
+        LcdPrintStringS(0,1,"_");
+        LcdPrintStringS(0,2,"_");
+    }       
     if((key_code[0] >= 10 && key_code[0]%2 == 1))
     {
         day = day + 1;
         if(day > 7)
             day = 1;  
         write_ds1307(ADDRESS_DAY, day);
+        key_code[0] = 0;
     }
     if((key_code[1] >= 10 && key_code[1]%2 == 1))
     {
@@ -264,19 +268,23 @@ void setDay()
         if(day < 1)
             day = 7;
         write_ds1307(ADDRESS_DAY, day);
+        key_code[1] = 0;
     }    
 }
 void setDate()
 {
-    timeBlink = (timeBlink + 1)%10;
-    if(timeBlink < 5 && enableBlink())
-        LcdPrintStringS(1,6,"  ");
+    LcdClearS();
+    if(blink == 1) {
+        LcdPrintStringS(1,6,"_");
+        LcdPrintStringS(1,7,"_");
+    }       
     if((key_code[0] >= 10 && key_code[0]%2 == 1))
     {
         date = date + 1;
         if(date > 31)
             date = 1;  
         write_ds1307(ADDRESS_DATE, date);
+        key_code[0] = 0;
     }
     if((key_code[1] >= 10 && key_code[1]%2 == 1))
     {
@@ -284,19 +292,24 @@ void setDate()
         if(date < 1)
             date = 31;
         write_ds1307(ADDRESS_DATE, date);
+        key_code[1] = 0;
     }    
 }
 void setMonth()
 {
-    timeBlink = (timeBlink + 1)%10;
-    if(timeBlink < 5 && enableBlink())
-        LcdPrintStringS(1,2,"   ");
+    LcdClearS();
+    if(blink == 1) {
+        LcdPrintStringS(1,2,"_");
+        LcdPrintStringS(1,3,"_");
+        LcdPrintStringS(1,4,"_");
+    }
     if((key_code[0] >= 10 && key_code[0]%2 == 1))
     {
         month = month + 1;
         if(month > 12)
             month = 1;  
         write_ds1307(ADDRESS_MONTH, month);
+        key_code[0] = 0;
     }
     if((key_code[1] >= 10 && key_code[1]%2 == 1))
     {
@@ -304,19 +317,23 @@ void setMonth()
         if(month < 1)
             month = 12;
         write_ds1307(ADDRESS_MONTH, month);
+        key_code[1] = 0;
     }    
 }
 void setYear()
 {
-    timeBlink = (timeBlink + 1)%10;
-    if(timeBlink < 5 && enableBlink())
-        LcdPrintStringS(1,11,"  ");
+    LcdClearS();
+    if(blink == 1) {
+        LcdPrintStringS(1,11,"_");
+        LcdPrintStringS(1,12,"_");
+    }        
     if((key_code[0] >= 10 && key_code[0]%2 == 1))
     {
         year = year + 1;
         if(year > 99)
             year = 0;  
         write_ds1307(ADDRESS_YEAR, year);
+        key_code[0] = 0;
     }
     if((key_code[1] >= 10 && key_code[1]%2 == 1))
     {
@@ -324,6 +341,7 @@ void setYear()
         if(year < 0)
             year = 99;
         write_ds1307(ADDRESS_YEAR, year);
+        key_code[1] = 0;
     }    
 }
 
@@ -339,38 +357,50 @@ void adjustTime() {
         case SET_DAY:
             display_Time();
             setDay();
-            if((key_code[2] >= 10 && key_code[2]%2 == 1))
+            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
                 statusSetTime = SET_HOUR;
+                key_code[3] = 0;
+            }               
             break;
         case SET_HOUR:
             display_Time();
             SetHour();
-            if((key_code[2] >= 10 && key_code[2]%2 == 1))
-                statusSetTime = SET_MINUTE;        
+            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
+                statusSetTime = SET_MINUTE; 
+                key_code[3] = 0;
+            }              
             break;
         case SET_MINUTE:
             display_Time();
             setMinute();
-            if((key_code[2] >= 10 && key_code[2]%2 == 1))
-                statusSetTime = SET_DATE;        
+            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
+                statusSetTime = SET_DATE;      
+                key_code[3] = 0;
+            }                 
             break;
         case SET_DATE:
             setDate();
             display_Time();
-            if((key_code[2] >= 10 && key_code[2]%2 == 1))
-                statusSetTime = SET_MONTH;
+            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
+                 statusSetTime = SET_MONTH;
+                 key_code[3] = 0;
+            }               
             break;
         case SET_MONTH:
             setMonth();
             display_Time();
-            if((key_code[2] >= 10 && key_code[2]%2 == 1))
+            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
                 statusSetTime = SET_YEAR;
+                key_code[3] = 0;
+            }               
             break;
         case SET_YEAR:
             setYear();
             display_Time();
-            if((key_code[2] >= 10 && key_code[2]%2 == 1))
+            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
                 statusSetTime = SET_DAY;
+                key_code[3] = 0;
+            }                
             break;   
         default:
             break;
@@ -473,23 +503,40 @@ void decrease(){
     }
 }
 
-
+void display_Setting_Alarm() {
+    LcdClearS();
+    LcdPrintNumS(0,5,hour/10);
+    LcdPrintNumS(0,6,hour%10);
+    if(index_set == 1 && blink == 1){
+        LcdPrintStringS(0,5,"_");
+        LcdPrintStringS(0,6,"_");
+    }
+    LcdPrintStringS(0,7,":");
+    LcdPrintNumS(0,8,minute/10);
+    LcdPrintNumS(0,9,minute%10);
+    if(index_set == 2 && blink == 1){
+        LcdPrintStringS(0,8,"_");
+        LcdPrintStringS(0,9,"_");
+    }
+}
 
 void display_Alarm(){
     if (key_code[0] >= 10 && key_code[0]%2 == 1){
         index_set = (index_set+1)%8;
         if (index_set == 0) index_set++;
-            key_code[0] = 0;
+        key_code[0] = 0;
     }
    
     if (key_code[6] >= 10 && key_code[6]%2 == 1){
-            increase();
-            key_code[6] = 0;
+        increase();
+        key_code[6] = 0;
     }
+    
     if (key_code[4] >= 10 && key_code[4]%2 == 1){
-           decrease();
-            key_code[4] = 0;
-        }
+        decrease();
+        key_code[4] = 0;
+    }
+    
     if (key_code[1] >= 10 && key_code[1]%2 == 1){
         hour_alarm = hour;
         minute_alarm = minute;
@@ -497,8 +544,6 @@ void display_Alarm(){
         alarm_flag = 1;
         key_code[1] = 0;
     }
-    LcdClearS();
-    LcdPrintStringS(0,0,"Moi dat bao thuc");
-//    Display_alarm();
+    display_Setting_Alarm();
     DisplayLcdScreen();    
 } 

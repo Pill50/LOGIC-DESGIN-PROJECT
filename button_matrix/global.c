@@ -1,10 +1,10 @@
 #include "global.h"
 
+int blink = 0;
 int status = 0;
 int inputThreshold = 0;
 int numberOfPushButton = 0;
 int statusSetTime = 0;
-int timeBlink = 0;
 int index_set = 0;
 int alarm_flag = 0;
 int day_of_month[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
