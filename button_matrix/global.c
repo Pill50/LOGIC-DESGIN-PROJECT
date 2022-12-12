@@ -2,11 +2,14 @@
 
 int blink = 0;
 int status = 0;
-int inputThreshold = 0;
+int input = 0;
 int numberOfPushButton = 0;
 int statusSetTime = 0;
 int index_set = 0;
+int threshold_flag = 0;
 int alarm_flag = 0;
+int adc_max_flag = 0;
+int adc_min_flag = 0;
 int day_of_month[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
 char hour_alarm, minute_alarm;
 
@@ -64,3 +67,5 @@ unsigned int FLOW_value_max = 36000;
 //unsigned int TMP_value_threshold_1 = 0;
 //unsigned int FLOW_value_threshold_1 = 0;
 unsigned int threshold[7] = {800,0,0,1000,2000,0,0};
+unsigned int adc_max[7] = {2000,2000,2000,1000,2000,2000,2000};
+unsigned int adc_min[7] = {0,0,0,0,0,0,0};

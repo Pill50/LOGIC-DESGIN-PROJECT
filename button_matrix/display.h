@@ -21,6 +21,7 @@ void display_input_val();
 void display_Warning();
 void display_Alarm();
 void display_Setting_Alarm();
+void display_set_ADC();
 void adjustTime();
 void setHour();
 void setMinute();

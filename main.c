@@ -153,6 +153,8 @@ void GetSensor(void)
     for(i=0; i < 7; i++) {
         rawSensor[i] = get_adc_value(i);
         adc_value[i] = rawSensor[i];
+        if(adc_value[i] > adc_max[i]) adc_value[i] = adc_max[i];
+        if(adc_value[i] < adc_min[i]) adc_value[i] = adc_min[i];
     }
     
 //    dataOfSensorPH[indexOfData[0]] = rawSensor[0];

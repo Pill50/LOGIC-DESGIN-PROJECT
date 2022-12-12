@@ -16,6 +16,7 @@
 #define MODE_5 5
 #define MODE_6 6
 #define MODE_7 7
+#define MODE_8 8
 
 #define SET_HOUR 12
 #define SET_MINUTE 13
@@ -25,12 +26,15 @@
 #define SET_YEAR 17
 
 extern int blink;
-extern int inputThreshold;
+extern int input;
 extern int status;
 extern int numberOfPushButton;
 extern int statusSetTime;
 extern int index_set;
 extern int alarm_flag;
+extern int threshold_flag;
+extern int adc_max_flag;
+extern int adc_min_flag;
 extern int day_of_month[12];
 extern char hour_alarm, minute_alarm;
 
@@ -88,6 +92,8 @@ extern unsigned int FLOW_value_max;
 //extern unsigned int TMP_value_threshold_1;
 //extern unsigned int FLOW_value_threshold_1;
 extern unsigned int threshold[7];
+extern unsigned int adc_max[7];
+extern unsigned int adc_min[7];
 
 #endif	/* GLOBAL_H */
 
