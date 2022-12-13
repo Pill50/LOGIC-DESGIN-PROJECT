@@ -44,18 +44,17 @@ void main(void)
     Set_Time();
 	while (1)
 	{
-        while (!flag_timer3);
-        flag_timer3 = 0;
+//        while (!flag_timer3);
+//        flag_timer3 = 0;
         
-//        if(flag_timer3 == 1) {
-//            scan_key_matrix();
-//            SetTimer3_ms(50);
-//        }
-        blink = 1-blink;
-        scan_key_matrix();
-        fsm();
-        GetSensor();
-        SimulateFull_Gimat();
+       
+        if(flag_timer3 == 1) {
+            SetTimer3_ms(50);
+            scan_key_matrix();
+            fsm();
+            GetSensor();
+            SimulateFull_Gimat();
+        }
         DisplayLcdScreen();
 	}
 }

@@ -1,7 +1,7 @@
 #include "display.h"
 
 void display_Time() {
-    LcdClearS();
+//    LcdClearS();
     switch(day)
     {
         case 1:
@@ -98,16 +98,28 @@ void display_Menu() {
             LcdPrintStringS(1,0,"**************");
             break;
         case 1: 
-            LcdPrintStringS(0,0,"1. DISPLAY TIME");
-            LcdPrintStringS(1,0,"2. ADJUST TIME");
+            LcdPrintStringS(0,0,"1.DISPLAY TIME >");
+            LcdPrintStringS(1,0,"2.ADJUST TIME ");
             break;
-        case 2:
-            LcdPrintStringS(0,0,"3. SET TH.HOLD");
-            LcdPrintStringS(1,0,"4. SET ADC");
+        case 2: 
+            LcdPrintStringS(0,0,"1.DISPLAY TIME ");
+            LcdPrintStringS(1,0,"2.ADJUST TIME  >");
             break;
         case 3:
-            LcdPrintStringS(0,0,"5. SEE WARNING");
-            LcdPrintStringS(1,0,"6. SET ALARM");
+            LcdPrintStringS(0,0,"3.SET TH.HOLD >");
+            LcdPrintStringS(1,0,"4.SET ADC");
+            break;
+        case 4:
+            LcdPrintStringS(0,0,"3.SET TH.HOLD ");
+            LcdPrintStringS(1,0,"4.SET ADC     >");
+            break;
+        case 5:
+            LcdPrintStringS(0,0,"5.SEE WARNING >");
+            LcdPrintStringS(1,0,"6.SET ALARM    ");
+            break;
+        case 6:
+            LcdPrintStringS(0,0,"5.SEE WARNING  ");
+            LcdPrintStringS(1,0,"6.SET ALARM   >");
             break;
         default: 
             numberOfPushButton = 0;
@@ -119,35 +131,35 @@ void display_Set_Threshold() {
     LcdClearS();
     switch(numberOfPushButton) {
         case 0: 
-            LcdPrintStringS(0,0," SET THRESHOLD ");
-            LcdPrintStringS(1,0,"****MODE****");
+            LcdPrintStringS(0,0," SET THRESHOLD  ");
+            LcdPrintStringS(1,0,"      MODE      ");
             break;
         case 1: 
-            LcdPrintStringS(0,0,"->SET TMP T.H");
-            LcdPrintStringS(1,0,"  SET COD T.H");
+            LcdPrintStringS(0,0,"SET TMP T.H    >");
+            LcdPrintStringS(1,0,"SET COD T.H     ");
             break;
         case 2: 
-            LcdPrintStringS(0,0,"  SET TMP T.H");
-            LcdPrintStringS(1,0,"->SET COD T.H");
+            LcdPrintStringS(0,0,"SET TMP T.H     ");
+            LcdPrintStringS(1,0,"SET COD T.H    >");
             break;
         case 3:
-            LcdPrintStringS(0,0,"->SET PH T.H");
-            LcdPrintStringS(1,0,"  SET SS T.H");
+            LcdPrintStringS(0,0,"SET PH T.H     >");
+            LcdPrintStringS(1,0,"SET SS T.H      ");
             break;
         case 4:
-            LcdPrintStringS(0,0,"  SET PH T.H");
-            LcdPrintStringS(1,0,"->SET SS T.H");
+            LcdPrintStringS(0,0,"SET PH T.H      ");
+            LcdPrintStringS(1,0,"SET SS T.H     >");
             break;
         case 5:
-            LcdPrintStringS(0,0,"->SET NH4 T.H");
-            LcdPrintStringS(1,0,"  SET NO3 T.H");
+            LcdPrintStringS(0,0,"SET NH4 T.H    >");
+            LcdPrintStringS(1,0,"SET NO3 T.H     ");
             break;
         case 6:
-            LcdPrintStringS(0,0,"  SET NH4 T.H");
-            LcdPrintStringS(1,0,"->SET NO3 T.H");
+            LcdPrintStringS(0,0,"SET NH4 T.H     ");
+            LcdPrintStringS(1,0,"SET NO3 T.H    >");
             break;
         case 7:
-            LcdPrintStringS(0,0,"->SET FLOW T.H");
+            LcdPrintStringS(0,0,"SET FLOW T.H   >");
             break;
         default: 
             // overflow & underflow
@@ -161,34 +173,34 @@ void display_set_ADC() {
     switch(numberOfPushButton) {
         case 0: 
             LcdPrintStringS(0,0,"  SET ADC MODE  ");
-            LcdPrintStringS(1,0,"3: MAX     4:MIN");
+            LcdPrintStringS(1,0,"5: MAX     6:MIN");
             break;
         case 1: 
-            LcdPrintStringS(0,0,"->SET TMP ADC");
-            LcdPrintStringS(1,0,"  SET COD ADC");
+            LcdPrintStringS(0,0,"SET TMP ADC    >");
+            LcdPrintStringS(1,0,"SET COD ADC     ");
             break;
         case 2: 
-            LcdPrintStringS(0,0,"  SET TMP ADC");
-            LcdPrintStringS(1,0,"->SET COD ADC");
+            LcdPrintStringS(0,0,"SET TMP ADC     ");
+            LcdPrintStringS(1,0,"SET COD ADC    >");
             break;
         case 3:
-            LcdPrintStringS(0,0,"->SET PH ADC");
-            LcdPrintStringS(1,0,"  SET SS ADC");
+            LcdPrintStringS(0,0,"SET PH ADC     >");
+            LcdPrintStringS(1,0,"SET SS ADC      ");
             break;
         case 4:
-            LcdPrintStringS(0,0,"  SET PH ADC");
-            LcdPrintStringS(1,0,"->SET SS ADC");
+            LcdPrintStringS(0,0,"SET PH ADC      ");
+            LcdPrintStringS(1,0,"SET SS ADC     >");
             break;
         case 5:
-            LcdPrintStringS(0,0,"->SET NH4 ADC");
-            LcdPrintStringS(1,0,"  SET NO3 ADC");
+            LcdPrintStringS(0,0,"SET NH4 ADC    >");
+            LcdPrintStringS(1,0,"SET NO3 ADC     ");
             break;
         case 6:
-            LcdPrintStringS(0,0,"  SET NH4 ADC");
-            LcdPrintStringS(1,0,"->SET NO3 ADC");
+            LcdPrintStringS(0,0,"SET NH4 ADC     ");
+            LcdPrintStringS(1,0,"SET NO3 ADC    >");
             break;
         case 7:
-            LcdPrintStringS(0,0,"->SET FLOW ADC");
+            LcdPrintStringS(0,0,"SET FLOW ADC   >");
             break;
         default: 
             // overflow & underflow
@@ -201,7 +213,7 @@ void display_input_val() {
     LcdClearS();
     LcdPrintStringS(0,0,"Input: ");
     LcdPrintNumS(0,7,input);
-    LcdPrintStringS(1,0,"3. Save");
+    LcdPrintStringS(1,0,"4. Save");
 }
 
 void display_Warning() {
@@ -240,14 +252,9 @@ void display_Warning() {
 }
 
 void SetHour()
-{
-    LcdClearS();
-    if(blink == 1) {
-        LcdPrintStringS(0,4,"_");
-        LcdPrintStringS(0,5,"_");
-    }       
+{     
     // increase hour value
-    if((key_code[0] >= 10 && key_code[0]%2 == 1)) {
+    if(key_code[0]>=5 && key_code[0]%2==1) {
         hour = hour + 1;
         if(hour > 23)
             hour = 0;  
@@ -255,7 +262,7 @@ void SetHour()
         key_code[0] = 0;
     }
     // decrease hour value
-    if((key_code[1] >= 10 && key_code[1]%2 == 1))
+    if(key_code[1]>=5 && key_code[1]%2==1)
     {
         hour = hour - 1;
         if(hour < 0)
@@ -267,13 +274,8 @@ void SetHour()
 
 void setMinute()
 {
-    LcdClearS();
-    if(blink == 1) {
-        LcdPrintStringS(0,7,"_");
-        LcdPrintStringS(0,8,"_");
-    }
     // increase minute value
-    if((key_code[0] >= 10 && key_code[0]%2 == 1)) {
+    if(key_code[0]>=5 && key_code[0]%2==1) {
         minute = minute + 1;
         if(minute > 59)
             minute = 0;  
@@ -281,7 +283,7 @@ void setMinute()
         key_code[0] = 0;
     }
     // decrease minute value
-    if((key_code[1] >= 10 && key_code[1]%2 == 1)) {
+    if(key_code[1]>=5 && key_code[1]%2==1) {
         minute = minute - 1;
         if(minute < 0)
             minute = 59;
@@ -291,14 +293,8 @@ void setMinute()
 }
 
 void setDay() {
-    LcdClearS();
-    if(blink == 1) {
-        LcdPrintStringS(0,0,"_");
-        LcdPrintStringS(0,1,"_");
-        LcdPrintStringS(0,2,"_");
-    }       
     // increase day value
-    if((key_code[0] >= 10 && key_code[0]%2 == 1)) {
+    if(key_code[0]>=5 && key_code[0]%2==1) {
         day = day + 1;
         if(day > 7)
             day = 1;  
@@ -306,7 +302,7 @@ void setDay() {
         key_code[0] = 0;
     }
     // decrease day value
-    if((key_code[1] >= 10 && key_code[1]%2 == 1)) {
+    if(key_code[1]>=5 && key_code[1]%2==1) {
         day = day - 1;
         if(day < 1)
             day = 7;
@@ -314,14 +310,9 @@ void setDay() {
         key_code[1] = 0;
     }    
 }
-void setDate() {
-    LcdClearS();
-    if(blink == 1) {
-        LcdPrintStringS(1,6,"_");
-        LcdPrintStringS(1,7,"_");
-    }       
+void setDate() {  
     // increase date value
-    if((key_code[0] >= 10 && key_code[0]%2 == 1)) {
+    if(key_code[0]>=5 && key_code[0]%2==1) {
         date = date + 1;
         if(date > 31)
             date = 1;  
@@ -329,7 +320,7 @@ void setDate() {
         key_code[0] = 0;
     }
     // decrease date value
-    if((key_code[1] >= 10 && key_code[1]%2 == 1)) {
+    if(key_code[1]>=5 && key_code[1]%2==1) {
         date = date - 1;
         if(date < 1)
             date = 31;
@@ -338,14 +329,8 @@ void setDate() {
     }    
 }
 void setMonth() {
-    LcdClearS();
-    if(blink == 1) {
-        LcdPrintStringS(1,2,"_");
-        LcdPrintStringS(1,3,"_");
-        LcdPrintStringS(1,4,"_");
-    }
     // increase month value
-    if((key_code[0] >= 10 && key_code[0]%2 == 1)) {
+    if(key_code[0]>=5 && key_code[0]%2==1) {
         month = month + 1;
         if(month > 12)
             month = 1;  
@@ -353,7 +338,7 @@ void setMonth() {
         key_code[0] = 0;
     }
     // decrease month value
-    if((key_code[1] >= 10 && key_code[1]%2 == 1)) {
+    if(key_code[1]>=5 && key_code[1]%2==1) {
         month = month - 1;
         if(month < 1)
             month = 12;
@@ -361,14 +346,9 @@ void setMonth() {
         key_code[1] = 0;
     }    
 }
-void setYear() {
-    LcdClearS();
-    if(blink == 1) {
-        LcdPrintStringS(1,11,"_");
-        LcdPrintStringS(1,12,"_");
-    }        
+void setYear() {    
     // increase year value
-    if((key_code[0] >= 10 && key_code[0]%2 == 1)) {
+    if(key_code[0]>=5 && key_code[0]%2==1) {
         year = year + 1;
         if(year > 99)
             year = 0;  
@@ -376,7 +356,7 @@ void setYear() {
         key_code[0] = 0;
     }
     // decrease year value
-    if((key_code[1] >= 10 && key_code[1]%2 == 1)) {
+    if(key_code[1]>=5 && key_code[1]%2==1) {
         year = year - 1;
         if(year < 0)
             year = 99;
@@ -388,57 +368,70 @@ void setYear() {
 void adjustTime() {
     LcdClearS();
     Read_time();
+    timeBlink = (timeBlink+1)%10;
     switch(statusSetTime) {
         case INIT:         
             display_Time();
             statusSetTime = SET_DAY;
             break;
-        case SET_DAY:
-            display_Time();
+        case SET_DAY:     
             setDay();
-            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
+            display_Time();
+            if(timeBlink < 5 && enableBlink())
+                LcdPrintStringS(0,0,"___");
+            if(key_code[4]>=5 && key_code[4]%2==1) {
                 statusSetTime = SET_HOUR;
-                key_code[3] = 0;
+                key_code[4] = 0;
             }               
             break;
         case SET_HOUR:
-            display_Time();
             SetHour();
-            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
+            display_Time();
+            if(timeBlink < 5 && enableBlink())
+               LcdPrintStringS(0,4,"__");
+            if(key_code[4]>=5 && key_code[4]%2==1) {
                 statusSetTime = SET_MINUTE; 
-                key_code[3] = 0;
+                key_code[4] = 0;
             }              
             break;
-        case SET_MINUTE:
-            display_Time();
+        case SET_MINUTE:            
             setMinute();
-            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
-                statusSetTime = SET_DATE;      
-                key_code[3] = 0;
+            display_Time();
+            if(timeBlink < 5 && enableBlink())
+                LcdPrintStringS(0,7,"__");
+            if(key_code[4]>=5 && key_code[4]%2==1) {
+                statusSetTime = SET_MONTH;      
+                key_code[4] = 0;
             }                 
             break;
-        case SET_DATE:
-            display_Time();
-            setDate();
-            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
-                 statusSetTime = SET_MONTH;
-                 key_code[3] = 0;
-            }               
-            break;
-        case SET_MONTH:
-            display_Time();
+         case SET_MONTH:
             setMonth();
-            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
-                statusSetTime = SET_YEAR;
-                key_code[3] = 0;
+            display_Time();
+            if(timeBlink < 5 && enableBlink())
+                LcdPrintStringS(1,2,"___");
+            if(key_code[4]>=5 && key_code[4]%2==1) {
+                statusSetTime = SET_DATE;
+                key_code[4] = 0;
             }               
             break;
-        case SET_YEAR:
+        case SET_DATE:
+            setDate();
             display_Time();
+            if(timeBlink < 5 && enableBlink())
+                LcdPrintStringS(1,6,"__");
+            if(key_code[4]>=5 && key_code[4]%2==1) {
+                statusSetTime = SET_YEAR;
+                key_code[4] = 0;
+            }               
+            break;      
+        case SET_YEAR:
             setYear();
-            if((key_code[3] >= 10 && key_code[3]%2 == 1)) {
+            display_Time();
+            if(timeBlink < 5 && enableBlink())
+                LcdPrintStringS(1,11,"__");
+            if(key_code[4]>=5 && key_code[4]%2==1) {
                 statusSetTime = SET_DAY;
-                key_code[3] = 0;
+                key_code[4] = 0;
             }                
             break;   
         default:
@@ -446,143 +439,51 @@ void adjustTime() {
     }
 }
 
-void increase(){
-    switch(index_set){
-        case 1: 
-            hour++;
-            if (hour > 23){
-                hour = 0;
-            }
-            break;
-        case 2:
-            minute++;
-            if (minute > 59){
-                minute = 0;
-            }
-            break;
-        case 3:
-            second++;
-            if (second > 59){
-                second = 0;
-            }
-            break;
-        case 4:
-            day++;
-            if (day > 7){
-                day = 1;
-            }
-            break;
-        case 5:
-            date = date+1;
-            if(date > day_of_month[month-1]){
-                date = 1;
-            }
-            break;
-        case 6:
-            month++;
-            if (month > 12){
-                month = 1;
-            }
-            break;
-        case 7:
-            year++;
-            break;
-        default:
-            break;
-    }
-}
-
-
-void decrease(){
-    switch(index_set){
-        case 1: 
-            hour--;
-            if (hour < 0){
-                hour = 23;
-            }
-            break;
-        case 2:
-            minute--;
-            if (minute < 0){
-                minute = 59;
-            }
-            break;
-        case 3:
-            second--;
-            if (second < 0){
-                second = 59;
-            }
-            break;
-        case 4:
-            day--;
-            if (day < 1){
-                day = 7;
-            }
-            break;
-        case 5:
-            date = date -1;
-            if(date < 1 ){
-                date = day_of_month[month-1];
-            }
-            break;
-        case 6:
-            month--;
-            if (month < 1){
-                month = 12;
-            }
-            break;
-        case 7:
-            year--;
-            if (year < 0){
-                year = 0;
-            }
-            break;
-        default:
-            break;
-    }
-}
-
 void display_Setting_Alarm() {
     LcdClearS();
-    LcdPrintNumS(0,5,hour/10);
-    LcdPrintNumS(0,6,hour%10);
-    if(index_set == 1 && blink == 1){
+    timeBlink = (timeBlink+1)%10;
+    LcdPrintNumS(0,5,hour_alarm/10);
+    LcdPrintNumS(0,6,hour_alarm%10);
+    if(timeBlink < 5 && enableBlink() && index_set == 0){
         LcdPrintStringS(0,5,"_");
         LcdPrintStringS(0,6,"_");
     }
     LcdPrintStringS(0,7,":");
-    LcdPrintNumS(0,8,minute/10);
-    LcdPrintNumS(0,9,minute%10);
-    if(index_set == 2 && blink == 1){
+    LcdPrintNumS(0,8,minute_alarm/10);
+    LcdPrintNumS(0,9,minute_alarm%10);
+    if(timeBlink < 5 && enableBlink() && index_set == 1){
         LcdPrintStringS(0,8,"_");
         LcdPrintStringS(0,9,"_");
     }
 }
 
 void display_Alarm(){
-    if (key_code[0] >= 10 && key_code[0]%2 == 1){
-        index_set = (index_set+1)%8;
-        if (index_set == 0) index_set++;
+    if (key_code[0] >= 5 && key_code[0]%2 == 1){
+        index_set = (index_set+1)%2;
         key_code[0] = 0;
     }
    
-    if (key_code[3] >= 10 && key_code[3]%2 == 1){
-        increase();
-        key_code[3] = 0;
+    // increase alarm value
+    if (key_code[5] >= 5 && key_code[5]%2 == 1){
+        if(index_set == 0) hour_alarm = (hour_alarm+1)%24;
+        if(index_set == 1) minute_alarm = (minute_alarm+1)%60;
+        key_code[5] = 0;
     }
     
-    if (key_code[4] >= 10 && key_code[4]%2 == 1){
-        decrease();
-        key_code[4] = 0;
+    // decrease alarm value
+    if (key_code[6] >= 5 && key_code[6]%2 == 1){
+        if(index_set == 0) hour_alarm--;
+        if(index_set == 1) minute_alarm--;
+        if(hour_alarm < 0) hour_alarm = 23;
+        if(minute_alarm < 0) minute_alarm = 59;
+        key_code[6] = 0;
     }
     
-    if (key_code[1] >= 10 && key_code[1]%2 == 1){
-        hour_alarm = hour;
-        minute_alarm = minute;
+    // save alarm value and switch to MODE1
+    if (key_code[1] >= 5 && key_code[1]%2 == 1){
         status = MODE_1;
         alarm_flag = 1;
         key_code[1] = 0;
     }
-    display_Setting_Alarm();
-    DisplayLcdScreen();    
+    display_Setting_Alarm();   
 } 

@@ -8,6 +8,8 @@
 #ifndef GLOBAL_H
 #define	GLOBAL_H
 
+#include "button_matrix/button.h"
+
 #define INIT 0
 #define MODE_1 1
 #define MODE_2 2
@@ -25,18 +27,21 @@
 #define SET_MONTH 16
 #define SET_YEAR 17
 
-extern int blink;
 extern int input;
 extern int status;
 extern int numberOfPushButton;
 extern int statusSetTime;
 extern int index_set;
+extern int index_adc;
+extern int index_menu;
 extern int alarm_flag;
 extern int threshold_flag;
 extern int adc_max_flag;
 extern int adc_min_flag;
 extern int day_of_month[12];
 extern char hour_alarm, minute_alarm;
+extern int timeBlink;
+extern unsigned char enableBlink(void);
 
 extern unsigned int simulateCnt;
 extern unsigned int simulateValue;
@@ -94,6 +99,8 @@ extern unsigned int FLOW_value_max;
 extern unsigned int threshold[7];
 extern unsigned int adc_max[7];
 extern unsigned int adc_min[7];
+//extern char* dayArr[7];
+//extern char* monthArr[12];
 
 #endif	/* GLOBAL_H */
 

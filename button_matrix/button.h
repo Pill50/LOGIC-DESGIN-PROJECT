@@ -19,5 +19,6 @@ void scan_key_matrix_with_uart();
 void button_process();
 void button_delay_ms(int value);
 void scan_key_matrix_demo();
+int isButtonPress(int index);
 
 #endif

@@ -80,3 +80,11 @@ void scan_key_matrix_demo()
 		button_delay_ms(1000);
 	}
 }
+
+int isButtonPress(int index) {
+    if(key_code[index] > 1) {
+        key_code[index]++;
+        return 1;
+    }
+    return 0;
+}
