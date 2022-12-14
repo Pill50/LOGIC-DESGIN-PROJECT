@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=button_matrix/button.c interrupt/interrupt.c lcd/lcd.c timer/timer.c uart/uart.c main.c adc/adc.c button_matrix/fsm.c button_matrix/global.c button_matrix/i2c.c button_matrix/display.c button_matrix/clock.c
+SOURCEFILES_QUOTED_IF_SPACED=button_matrix/button.c interrupt/interrupt.c lcd/lcd.c timer/timer.c uart/uart.c main.c adc/adc.c button_matrix/fsm.c button_matrix/global.c button_matrix/i2c.c button_matrix/display.c button_matrix/clock.c button_matrix/datasensor.c button_matrix/datasensor1.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/button_matrix/button.o ${OBJECTDIR}/interrupt/interrupt.o ${OBJECTDIR}/lcd/lcd.o ${OBJECTDIR}/timer/timer.o ${OBJECTDIR}/uart/uart.o ${OBJECTDIR}/main.o ${OBJECTDIR}/adc/adc.o ${OBJECTDIR}/button_matrix/fsm.o ${OBJECTDIR}/button_matrix/global.o ${OBJECTDIR}/button_matrix/i2c.o ${OBJECTDIR}/button_matrix/display.o ${OBJECTDIR}/button_matrix/clock.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/button_matrix/button.o.d ${OBJECTDIR}/interrupt/interrupt.o.d ${OBJECTDIR}/lcd/lcd.o.d ${OBJECTDIR}/timer/timer.o.d ${OBJECTDIR}/uart/uart.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/adc/adc.o.d ${OBJECTDIR}/button_matrix/fsm.o.d ${OBJECTDIR}/button_matrix/global.o.d ${OBJECTDIR}/button_matrix/i2c.o.d ${OBJECTDIR}/button_matrix/display.o.d ${OBJECTDIR}/button_matrix/clock.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/button_matrix/button.o ${OBJECTDIR}/interrupt/interrupt.o ${OBJECTDIR}/lcd/lcd.o ${OBJECTDIR}/timer/timer.o ${OBJECTDIR}/uart/uart.o ${OBJECTDIR}/main.o ${OBJECTDIR}/adc/adc.o ${OBJECTDIR}/button_matrix/fsm.o ${OBJECTDIR}/button_matrix/global.o ${OBJECTDIR}/button_matrix/i2c.o ${OBJECTDIR}/button_matrix/display.o ${OBJECTDIR}/button_matrix/clock.o ${OBJECTDIR}/button_matrix/datasensor.o ${OBJECTDIR}/button_matrix/datasensor1.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/button_matrix/button.o.d ${OBJECTDIR}/interrupt/interrupt.o.d ${OBJECTDIR}/lcd/lcd.o.d ${OBJECTDIR}/timer/timer.o.d ${OBJECTDIR}/uart/uart.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/adc/adc.o.d ${OBJECTDIR}/button_matrix/fsm.o.d ${OBJECTDIR}/button_matrix/global.o.d ${OBJECTDIR}/button_matrix/i2c.o.d ${OBJECTDIR}/button_matrix/display.o.d ${OBJECTDIR}/button_matrix/clock.o.d ${OBJECTDIR}/button_matrix/datasensor.o.d ${OBJECTDIR}/button_matrix/datasensor1.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/button_matrix/button.o ${OBJECTDIR}/interrupt/interrupt.o ${OBJECTDIR}/lcd/lcd.o ${OBJECTDIR}/timer/timer.o ${OBJECTDIR}/uart/uart.o ${OBJECTDIR}/main.o ${OBJECTDIR}/adc/adc.o ${OBJECTDIR}/button_matrix/fsm.o ${OBJECTDIR}/button_matrix/global.o ${OBJECTDIR}/button_matrix/i2c.o ${OBJECTDIR}/button_matrix/display.o ${OBJECTDIR}/button_matrix/clock.o
+OBJECTFILES=${OBJECTDIR}/button_matrix/button.o ${OBJECTDIR}/interrupt/interrupt.o ${OBJECTDIR}/lcd/lcd.o ${OBJECTDIR}/timer/timer.o ${OBJECTDIR}/uart/uart.o ${OBJECTDIR}/main.o ${OBJECTDIR}/adc/adc.o ${OBJECTDIR}/button_matrix/fsm.o ${OBJECTDIR}/button_matrix/global.o ${OBJECTDIR}/button_matrix/i2c.o ${OBJECTDIR}/button_matrix/display.o ${OBJECTDIR}/button_matrix/clock.o ${OBJECTDIR}/button_matrix/datasensor.o ${OBJECTDIR}/button_matrix/datasensor1.o
 
 # Source Files
-SOURCEFILES=button_matrix/button.c interrupt/interrupt.c lcd/lcd.c timer/timer.c uart/uart.c main.c adc/adc.c button_matrix/fsm.c button_matrix/global.c button_matrix/i2c.c button_matrix/display.c button_matrix/clock.c
+SOURCEFILES=button_matrix/button.c interrupt/interrupt.c lcd/lcd.c timer/timer.c uart/uart.c main.c adc/adc.c button_matrix/fsm.c button_matrix/global.c button_matrix/i2c.c button_matrix/display.c button_matrix/clock.c button_matrix/datasensor.c button_matrix/datasensor1.c
 
 
 CFLAGS=
@@ -197,6 +197,22 @@ ${OBJECTDIR}/button_matrix/clock.o: button_matrix/clock.c  nbproject/Makefile-${
 	@${DEP_GEN} -d ${OBJECTDIR}/button_matrix/clock.o 
 	@${FIXDEPS} "${OBJECTDIR}/button_matrix/clock.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
+${OBJECTDIR}/button_matrix/datasensor.o: button_matrix/datasensor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/button_matrix" 
+	@${RM} ${OBJECTDIR}/button_matrix/datasensor.o.d 
+	@${RM} ${OBJECTDIR}/button_matrix/datasensor.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/button_matrix/datasensor.o   button_matrix/datasensor.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/button_matrix/datasensor.o 
+	@${FIXDEPS} "${OBJECTDIR}/button_matrix/datasensor.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/button_matrix/datasensor1.o: button_matrix/datasensor1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/button_matrix" 
+	@${RM} ${OBJECTDIR}/button_matrix/datasensor1.o.d 
+	@${RM} ${OBJECTDIR}/button_matrix/datasensor1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/button_matrix/datasensor1.o   button_matrix/datasensor1.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/button_matrix/datasensor1.o 
+	@${FIXDEPS} "${OBJECTDIR}/button_matrix/datasensor1.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
 else
 ${OBJECTDIR}/button_matrix/button.o: button_matrix/button.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/button_matrix" 
@@ -293,6 +309,22 @@ ${OBJECTDIR}/button_matrix/clock.o: button_matrix/clock.c  nbproject/Makefile-${
 	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/button_matrix/clock.o   button_matrix/clock.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/button_matrix/clock.o 
 	@${FIXDEPS} "${OBJECTDIR}/button_matrix/clock.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/button_matrix/datasensor.o: button_matrix/datasensor.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/button_matrix" 
+	@${RM} ${OBJECTDIR}/button_matrix/datasensor.o.d 
+	@${RM} ${OBJECTDIR}/button_matrix/datasensor.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/button_matrix/datasensor.o   button_matrix/datasensor.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/button_matrix/datasensor.o 
+	@${FIXDEPS} "${OBJECTDIR}/button_matrix/datasensor.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/button_matrix/datasensor1.o: button_matrix/datasensor1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/button_matrix" 
+	@${RM} ${OBJECTDIR}/button_matrix/datasensor1.o.d 
+	@${RM} ${OBJECTDIR}/button_matrix/datasensor1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/button_matrix/datasensor1.o   button_matrix/datasensor1.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/button_matrix/datasensor1.o 
+	@${FIXDEPS} "${OBJECTDIR}/button_matrix/datasensor1.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 endif
 

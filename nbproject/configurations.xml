@@ -16,6 +16,8 @@
       <itemPath>button_matrix/i2c.h</itemPath>
       <itemPath>button_matrix/display.h</itemPath>
       <itemPath>button_matrix/clock.h</itemPath>
+      <itemPath>button_matrix/datasensor.h</itemPath>
+      <itemPath>button_matrix/datasensor1.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -36,6 +38,8 @@
       <itemPath>button_matrix/i2c.c</itemPath>
       <itemPath>button_matrix/display.c</itemPath>
       <itemPath>button_matrix/clock.c</itemPath>
+      <itemPath>button_matrix/datasensor.c</itemPath>
+      <itemPath>button_matrix/datasensor1.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

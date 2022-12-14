@@ -98,6 +98,7 @@ void fsm() {
         case MODE_4: // set threshold
             // increase index option
             if(key_code[0]>=5 && key_code[0]%2==1) {
+                index_threshold = (index_threshold+1)%8;
                 numberOfPushButton = (numberOfPushButton+1)%8;
                 if(numberOfPushButton == 0) numberOfPushButton = 1;
                 key_code[0] = 0;
@@ -105,6 +106,7 @@ void fsm() {
             // switch to enter innput value
             if(key_code[4]>=5 && key_code[4]%2==1) {
                 threshold_flag = 1;
+                input = threshold[index_threshold];
                 status = MODE_8;
                 key_code[4] = 0;
             }
@@ -175,7 +177,7 @@ void fsm() {
             if(key_code[4]>=5 && key_code[4]%2==1) {
                 // SAVE
                 if(threshold_flag == 1) {
-                    threshold[index_adc] = input;
+                    threshold[index_threshold] = input;
                     threshold_flag = 0;
                 }
                 if(adc_max_flag == 1) {
@@ -189,6 +191,8 @@ void fsm() {
                 status = MODE_2;
                 key_code[4] = 0;
             }
+            index_threshold = 0;
+            index_adc = 0;
             break;
         default: 
             status = INIT;

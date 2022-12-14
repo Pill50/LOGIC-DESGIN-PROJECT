@@ -33,6 +33,7 @@ extern int numberOfPushButton;
 extern int statusSetTime;
 extern int index_set;
 extern int index_adc;
+extern int index_threshold;
 extern int index_menu;
 extern int alarm_flag;
 extern int threshold_flag;
@@ -99,8 +100,6 @@ extern unsigned int FLOW_value_max;
 extern unsigned int threshold[7];
 extern unsigned int adc_max[7];
 extern unsigned int adc_min[7];
-//extern char* dayArr[7];
-//extern char* monthArr[12];
 
 #endif	/* GLOBAL_H */
 

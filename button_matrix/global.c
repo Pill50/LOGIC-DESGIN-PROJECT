@@ -6,6 +6,7 @@ int numberOfPushButton = 0;
 int statusSetTime = 0;
 int index_set = 0;
 int index_adc = 0;
+int index_threshold = 0;
 int index_menu = 0;
 int threshold_flag = 0;
 int alarm_flag = 0;
@@ -34,10 +35,10 @@ unsigned int FLOW_value;
 
 /////////////////START////////////
 unsigned int dataOfSensorPH[50];
-unsigned long averageSensor[7];
-unsigned long rawSensor[7];
-char indexOfData_10[7];
-char indexOfData[7];
+unsigned long averageSensor[7]= {0,0,0,0,0,0,0};
+unsigned long rawSensor[7] = {0,0,0,0,0,0,0};
+char indexOfData_10[7] = {0,0,0,0,0,0,0};
+char indexOfData[7] = {0,0,0,0,0,0,0};
 //unsigned long averageSensor_0 =0 ;
 /////////////////END////////////
 

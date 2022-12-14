@@ -2,6 +2,9 @@
 #include "stdio.h"
 #include "button_matrix/clock.h"
 #include "button_matrix/global.h"
+#include "button_matrix/datasensor.h"
+#include "button_matrix/datasensor1.h"
+
 //Noi khai bao hang so
 #define     LED     PORTD
 #define     ON      1
@@ -10,6 +13,9 @@
 // Noi khai bao bien toan cuc
 unsigned char arrayMapOfOutput [8] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};
 unsigned char statusOutput[8] = {0,0,0,0,0,0,0,0};
+unsigned int dataOfSensorSS[50];
+unsigned int dataOfSensorCOD[50];
+
 // Khai bao cac ham co ban IO
 void init_system(void);
 void delay_ms(int value);
@@ -22,14 +28,13 @@ unsigned char isButtonSetTempMin();
 unsigned char isButtonSetTempMax();
 void CalibTemp(void);
 
-void GetSensor(void);
-//void GetSensorSS(void);
-//void GetSensorCOD(void);
-//void GetSensorNH4(void);
-//void GetSensorNO3(void);
-//void GetSensorTMP(void);
-//void GetSensorFLOW(void);
-
+void GetSensorPH(void);
+void GetSensorSS(void);
+void GetSensorCOD(void);
+void GetSensorNH4(void);
+void GetSensorNO3(void);
+void GetSensorTMP(void);
+void GetSensorFLOW(void);
 void SimulateFull_Gimat(void);
 
 void main(void)
@@ -44,17 +49,25 @@ void main(void)
     Set_Time();
 	while (1)
 	{
-//        while (!flag_timer3);
-//        flag_timer3 = 0;
         
+        GetSensorPH();
+        GetSensorSS();
+        GetSensorCOD();
+        GetSensorNH4();
+        GetSensorNO3();
+        GetSensorTMP();
+        GetSensorFLOW();
+        
+//        while(!flag_timer3);
+//        flag_timer3 = 0;
        
         if(flag_timer3 == 1) {
             SetTimer3_ms(50);
             scan_key_matrix();
             fsm();
-            GetSensor();
-            SimulateFull_Gimat();
+            SimulateFull_Gimat();     
         }
+        
         DisplayLcdScreen();
 	}
 }
@@ -145,32 +158,143 @@ unsigned char isButtonSetTempMax()
         return 0;
 }
 
-void GetSensor(void)
+//////////////////////////////
+/////////////////////////////////
+void GetSensorPH(void)
 {
-    // there are something wrong of setting port
     int i;
-    for(i=0; i < 7; i++) {
-        rawSensor[i] = get_adc_value(i);
-        adc_value[i] = rawSensor[i];
-        if(adc_value[i] > adc_max[i]) adc_value[i] = adc_max[i];
-        if(adc_value[i] < adc_min[i]) adc_value[i] = adc_min[i];
+    rawSensor[0] = get_adc_value(0);
+    dataOfSensorPH[indexOfData[0]] = rawSensor[0];
+    indexOfData[0] = (indexOfData[0] + 1)%50;
+        //giai thuat lay 10 frame
+    indexOfData_10[0] = indexOfData[0];
+    averageSensor[0] = 0;
+    for (i=0;i<50;i++)
+    {
+        averageSensor[0] = averageSensor[0] + dataOfSensorPH[indexOfData_10[0]];
+        if (indexOfData_10[0] == 0)
+            indexOfData_10[0] = 50 - 1;
+        else
+            indexOfData_10[0] --;   
     }
-    
-//    dataOfSensorPH[indexOfData[0]] = rawSensor[0];
-//    indexOfData[0] = (indexOfData[0] + 1)%50;
-//    //giai thuat lay 10 frame
-//    indexOfData_10[0] = indexOfData[0];
-//    averageSensor[0] = 0;
-//    for (i=0;i<50;i++)
-//    {
-//        averageSensor[0] = averageSensor[0] + dataOfSensorPH[indexOfData_10[0]];
-//        if (indexOfData_10[0] == 0)
-//            indexOfData_10[0] = 50 - 1;
-//        else
-//            indexOfData_10[0] --;
-//    }
-//    averageSensor[0] = averageSensor[0]/50;
+    averageSensor[0] = averageSensor[0]/50;
 }
+
+void GetSensorSS(void){
+    int i;
+    rawSensor[1] = get_adc_value(1);
+    dataOfSensorSS[indexOfData[1]] = rawSensor[1];
+    indexOfData[1] = (indexOfData[1] + 1)%50;
+    //giai thuat lay 10 frame
+    indexOfData_10[1] = indexOfData[1];
+    averageSensor[1] = 0;
+    for (i=0;i<50;i++)
+    {
+        averageSensor[1] = averageSensor[1] + dataOfSensorSS[indexOfData_10[1]];
+        if (indexOfData_10[1] == 0)
+            indexOfData_10[1] = 50 - 1;
+        else
+            indexOfData_10[1] --;   
+    }
+    averageSensor[1] = averageSensor[1]/50;
+}
+
+void GetSensorCOD(void){
+    int i;
+    rawSensor[2] = get_adc_value(2);
+    dataOfSensorCOD[indexOfData[2]] = rawSensor[2];
+    indexOfData[2] = (indexOfData[2] + 1)%50;
+    //giai thuat lay 10 frame
+    indexOfData_10[2] = indexOfData[2];
+    averageSensor[2] = 0;
+    for (i=0;i<50;i++)
+    {
+        averageSensor[2] = averageSensor[2] + dataOfSensorCOD[indexOfData_10[2]];
+        if (indexOfData_10[2] == 0)
+            indexOfData_10[2] = 50 - 1;
+        else
+            indexOfData_10[2] --;   
+    }
+    averageSensor[2] = averageSensor[2]/50;
+}
+
+void GetSensorTMP(void){
+    int i;
+    rawSensor[3] = get_adc_value(3);
+    dataOfSensorTMP[indexOfData[3]] = rawSensor[3];
+    indexOfData[3] = (indexOfData[3] + 1)%50;
+    //giai thuat lay 10 frame
+    indexOfData_10[3] = indexOfData[3];
+    averageSensor[3] = 0;
+    for (i=0;i<50;i++)
+    {
+        averageSensor[3] = averageSensor[3] + dataOfSensorTMP[indexOfData_10[3]];
+        if (indexOfData_10[3] == 0)
+            indexOfData_10[3] = 50 - 1;
+        else
+            indexOfData_10[3] --;   
+    }
+    averageSensor[3] = averageSensor[3]/50;
+}
+
+void GetSensorNH4(void){
+    int i;
+    rawSensor[4] = get_adc_value(4);
+    dataOfSensorNH4[indexOfData[4]] = rawSensor[4];
+    indexOfData[4] = (indexOfData[4] + 1)%50;
+    //giai thuat lay 10 frame
+    indexOfData_10[4] = indexOfData[4];
+    averageSensor[4] = 0;
+    for (i=0;i<50;i++)
+    {
+        averageSensor[4] = averageSensor[4] + dataOfSensorNH4[indexOfData_10[4]];
+        if (indexOfData_10[4] == 0)
+            indexOfData_10[4] = 50 - 1;
+        else
+            indexOfData_10[4] --;   
+    }
+    averageSensor[4] = averageSensor[4]/50;    
+}
+
+void GetSensorNO3(void){
+    int i;
+    rawSensor[5] = get_adc_value(5);
+    dataOfSensorNO3[indexOfData[5]] = rawSensor[5];
+    indexOfData[5] = (indexOfData[5] + 1)%50;
+    //giai thuat lay 10 frame
+    indexOfData_10[5] = indexOfData[5];
+    averageSensor[5] = 0;
+    for (i=0;i<50;i++)
+    {
+        averageSensor[5] = averageSensor[5] + dataOfSensorNO3[indexOfData_10[5]];
+        if (indexOfData_10[5] == 0)
+            indexOfData_10[5] = 50 - 1;
+        else
+            indexOfData_10[5] --;   
+    }
+    averageSensor[5] = averageSensor[5]/50;
+}
+
+void GetSensorFLOW(void){
+    int i;
+    rawSensor[6] = get_adc_value(6);
+    dataOfSensorFLOW[indexOfData[6]] = rawSensor[6];
+    indexOfData[6] = (indexOfData[6] + 1)%50;
+    //giai thuat lay 10 frame
+    indexOfData_10[6] = indexOfData[6];
+    averageSensor[6] = 0;
+    for (i=0;i<50;i++)
+    {
+        averageSensor[6] = averageSensor[6] + dataOfSensorFLOW[indexOfData_10[6]];
+        if (indexOfData_10[6] == 0)
+            indexOfData_10[6] = 50 - 1;
+        else
+            indexOfData_10[6] --;   
+    }
+    averageSensor[6] = averageSensor[6]/50;
+}
+
+//////////////
 
 void SimulateFull_Gimat(void)
 {
@@ -180,14 +304,15 @@ void SimulateFull_Gimat(void)
     {
 //        adcValue = averageSensor_0;
         //temp = yMin + (long)(adcValue - 0) * (yMax - yMin) / (1023 - 0);
-        pH_value = pH_value_min + (long)(adc_value[0] - 0) * (pH_value_max - pH_value_min) / (1023 - 0);
-//        SS_value = 0 + (long)(adc_value[1] - 0) * (10000 - 0) / (1023 - 0);
-//        COD_value = 0 + (long)(adc_value[2] - 0) * (2000 - 0) / (1023 - 0);
-//        NH4_value = 1000 + (long)(adc_value[3] - 0) * (5000 - 1000) / (1023 - 0);
-//        NO3_value = 2000 + (long)(adc_value[4] - 0) * (10000 - 2000) / (1023 - 0);
-//        TMP_value = TMP_value_min + (long)(adc_value[5] - TMP_adc_min) * (TMP_value_max - TMP_value_min) / (TMP_adc_max - TMP_adc_min);
-//        FLOW_value = 0 + (long)(adc_value[6] - 0) * (36000 - 0) / (1023 - 0);
 
+        pH_value = pH_value_min + (long)(averageSensor[0] - 0) * (pH_value_max - pH_value_min) / (1023 - 0);
+        SS_value = 0 + (long)(averageSensor[1] - 0) * (10000 - 0) / (1023 - 0);
+        COD_value = 0 + (long)(averageSensor[2] - 0) * (2000 - 0) / (1023 - 0);
+        TMP_value = TMP_value_min + (long)(averageSensor[3] - TMP_adc_min) * (TMP_value_max - TMP_value_min) / (TMP_adc_max - TMP_adc_min);
+        NH4_value = 1000 + (long)(averageSensor[4] - 0) * (5000 - 1000) / (1023 - 0);
+        NO3_value = 2000 + (long)(averageSensor[5] - 0) * (10000 - 2000) / (1023 - 0);
+        FLOW_value = 0 + (long)(averageSensor[6] - 0) * (36000 - 0) / (1023 - 0);
+        
         UartSendString("20.04.16 09:12:07  pH=  ");
         UartSendNumPercent(pH_value);
         UartSendString(" pH SS= ");

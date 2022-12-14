@@ -135,28 +135,28 @@ void display_Set_Threshold() {
             LcdPrintStringS(1,0,"      MODE      ");
             break;
         case 1: 
-            LcdPrintStringS(0,0,"SET TMP T.H    >");
-            LcdPrintStringS(1,0,"SET COD T.H     ");
-            break;
-        case 2: 
-            LcdPrintStringS(0,0,"SET TMP T.H     ");
-            LcdPrintStringS(1,0,"SET COD T.H    >");
-            break;
-        case 3:
             LcdPrintStringS(0,0,"SET PH T.H     >");
             LcdPrintStringS(1,0,"SET SS T.H      ");
             break;
-        case 4:
+        case 2: 
             LcdPrintStringS(0,0,"SET PH T.H      ");
             LcdPrintStringS(1,0,"SET SS T.H     >");
             break;
+        case 3:
+            LcdPrintStringS(0,0,"SET COD T.H     >");
+            LcdPrintStringS(1,0,"SET NH4 T.H      ");
+            break;
+        case 4:
+            LcdPrintStringS(0,0,"SET COD T.H      ");
+            LcdPrintStringS(1,0,"SET NH4 T.H     >");
+            break;
         case 5:
-            LcdPrintStringS(0,0,"SET NH4 T.H    >");
-            LcdPrintStringS(1,0,"SET NO3 T.H     ");
+            LcdPrintStringS(0,0,"SET NO3 T.H    >");
+            LcdPrintStringS(1,0,"SET TMP T.H     ");
             break;
         case 6:
-            LcdPrintStringS(0,0,"SET NH4 T.H     ");
-            LcdPrintStringS(1,0,"SET NO3 T.H    >");
+            LcdPrintStringS(0,0,"SET NO3 T.H     ");
+            LcdPrintStringS(1,0,"SET TMP T.H    >");
             break;
         case 7:
             LcdPrintStringS(0,0,"SET FLOW T.H   >");
@@ -176,28 +176,28 @@ void display_set_ADC() {
             LcdPrintStringS(1,0,"5: MAX     6:MIN");
             break;
         case 1: 
-            LcdPrintStringS(0,0,"SET TMP ADC    >");
-            LcdPrintStringS(1,0,"SET COD ADC     ");
-            break;
-        case 2: 
-            LcdPrintStringS(0,0,"SET TMP ADC     ");
-            LcdPrintStringS(1,0,"SET COD ADC    >");
-            break;
-        case 3:
             LcdPrintStringS(0,0,"SET PH ADC     >");
             LcdPrintStringS(1,0,"SET SS ADC      ");
             break;
-        case 4:
+        case 2: 
             LcdPrintStringS(0,0,"SET PH ADC      ");
             LcdPrintStringS(1,0,"SET SS ADC     >");
             break;
+        case 3:
+            LcdPrintStringS(0,0,"SET COD ADC     >");
+            LcdPrintStringS(1,0,"SET NH4 ADC      ");
+            break;
+        case 4:
+            LcdPrintStringS(0,0,"SET COD ADC      ");
+            LcdPrintStringS(1,0,"SET NH4 ADC     >");
+            break;
         case 5:
-            LcdPrintStringS(0,0,"SET NH4 ADC    >");
-            LcdPrintStringS(1,0,"SET NO3 ADC     ");
+            LcdPrintStringS(0,0,"SET NO3 ADC    >");
+            LcdPrintStringS(1,0,"SET TMP ADC     ");
             break;
         case 6:
-            LcdPrintStringS(0,0,"SET NH4 ADC     ");
-            LcdPrintStringS(1,0,"SET NO3 ADC    >");
+            LcdPrintStringS(0,0,"SET NO3 ADC     ");
+            LcdPrintStringS(1,0,"SET TMP ADC    >");
             break;
         case 7:
             LcdPrintStringS(0,0,"SET FLOW ADC   >");
@@ -222,14 +222,14 @@ void display_Warning() {
         LcdPrintStringS(0,0,"PH=  ");
         LcdPrintNumPercentS(0,6,pH_value);
         LcdPrintStringS(1,0,"PH CAO ");
-    } else if (COD_value > threshold[1]) {
-        LcdPrintStringS(0,0,"COD=  ");
-        LcdPrintNumPercentS(0,6,COD_value);
-        LcdPrintStringS(1,0,"COD CAO ");
-    } else if (SS_value > threshold[2]) {
+    } else if (SS_value > threshold[1]) {
         LcdPrintStringS(0,0,"SS=  ");
         LcdPrintNumPercentS(0,6,SS_value);
         LcdPrintStringS(1,0,"SS CAO ");
+    } else if (COD_value > threshold[2]) {
+        LcdPrintStringS(0,0,"COD=  ");
+        LcdPrintNumPercentS(0,6,COD_value);
+        LcdPrintStringS(1,0,"COD CAO ");
     } else if (NH4_value > threshold[3]) {
         LcdPrintStringS(0,0,"NH4=  ");
         LcdPrintNumPercentS(0,6,NH4_value);
