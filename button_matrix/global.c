@@ -78,5 +78,4 @@ unsigned int FLOW_value_max = 36000;
 unsigned int threshold[7] = {800,0,0,1000,2000,0,0};
 unsigned int adc_max[7] = {2000,2000,2000,1000,2000,2000,2000};
 unsigned int adc_min[7] = {0,0,0,0,0,0,0};
-//char* dayArr[7] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
-//char* monthArr[12] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
+

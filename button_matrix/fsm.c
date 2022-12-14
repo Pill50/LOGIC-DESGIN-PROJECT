@@ -21,6 +21,7 @@ void fsm() {
             }
             // display alarm watering
             if(hour == hour_alarm && minute == minute_alarm){
+                alarm_flag = 1;
                 timeBlink = (timeBlink+1)%10;
                 LcdClearS();                
                 if(timeBlink < 5 && enableBlink()) {
@@ -28,7 +29,7 @@ void fsm() {
                    LcdPrintStringS(1,0,"****************");
                 }
             } else {
-//                alarm_flag = 0;
+                alarm_flag = 0;
                 display_Time();
             }
             break;

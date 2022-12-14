@@ -24,9 +24,8 @@ void CloseOutput(int index);
 void TestOutput(void);
 void ReverseOutput(int index);
 
-unsigned char isButtonSetTempMin();
-unsigned char isButtonSetTempMax();
 void CalibTemp(void);
+
 
 void GetSensorPH(void);
 void GetSensorSS(void);
@@ -48,8 +47,7 @@ void main(void)
     delay_ms(1000);
     Set_Time();
 	while (1)
-	{
-        
+	{       
         GetSensorPH();
         GetSensorSS();
         GetSensorCOD();
@@ -57,9 +55,11 @@ void main(void)
         GetSensorNO3();
         GetSensorTMP();
         GetSensorFLOW();
-        
-//        while(!flag_timer3);
-//        flag_timer3 = 0;
+                                    
+        if(alarm_flag == 1) 
+            OpenOutput(3);
+        else 
+            CloseOutput(3);
        
         if(flag_timer3 == 1) {
             SetTimer3_ms(50);

@@ -482,7 +482,6 @@ void display_Alarm(){
     // save alarm value and switch to MODE1
     if (key_code[1] >= 5 && key_code[1]%2 == 1){
         status = MODE_1;
-        alarm_flag = 1;
         key_code[1] = 0;
     }
     display_Setting_Alarm();   
