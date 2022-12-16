@@ -89,18 +89,33 @@ Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_mat
 Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 246 : suspicious pointer conversion
 Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 248 : suspicious pointer conversion
 Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 250 : suspicious pointer conversion
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 369 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 370 : call of function without prototype
-Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 381 : suspicious pointer conversion
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 388 : call of function without prototype
-Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 391 : suspicious pointer conversion
-Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 401 : suspicious pointer conversion
-Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 411 : suspicious pointer conversion
-Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 421 : suspicious pointer conversion
-Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 431 : suspicious pointer conversion
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 443 : call of function without prototype
-Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 448 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 252 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 254 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 256 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 258 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 260 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 262 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 264 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 266 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 268 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 270 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 272 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 274 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 276 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 278 : suspicious pointer conversion
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 397 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 398 : call of function without prototype
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 409 : suspicious pointer conversion
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 416 : call of function without prototype
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 419 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 429 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 439 : suspicious pointer conversion
 Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 449 : suspicious pointer conversion
-Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 451 : suspicious pointer conversion
-Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 455 : suspicious pointer conversion
-Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 456 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 459 : suspicious pointer conversion
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 471 : call of function without prototype
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 476 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 477 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 479 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 483 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 484 : suspicious pointer conversion
+Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\display.c 486 : suspicious pointer conversion

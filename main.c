@@ -43,7 +43,7 @@ void main(void)
     init_i2c();
     lcd_clear();
     LcdClearS();
-    OpenOutput(0);
+    CloseOutput(0);
     delay_ms(1000);
     Set_Time();
 	while (1)
@@ -55,12 +55,11 @@ void main(void)
         GetSensorNO3();
         GetSensorTMP();
         GetSensorFLOW();
-                                    
-        if(alarm_flag == 1) 
-            OpenOutput(3);
-        else 
-            CloseOutput(3);
-       
+                             
+        if(hour == hour_alarm && minute == minute_alarm)
+            OpenOutput(0);
+        else CloseOutput(0);
+            
         if(flag_timer3 == 1) {
             SetTimer3_ms(50);
             scan_key_matrix();

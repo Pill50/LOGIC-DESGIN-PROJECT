@@ -92,37 +92,37 @@ void display_Time() {
 
 void display_Menu() {
     LcdClearS();
-    switch(numberOfPushButton) {
+    switch(index_menu) {
         case 0: 
-            LcdPrintStringS(0,0,"**** MENU ****");
-            LcdPrintStringS(1,0,"**************");
+            LcdPrintStringS(0,0,"**** MENU ******");
+            LcdPrintStringS(1,0,"****************");
             break;
         case 1: 
-            LcdPrintStringS(0,0,"1.DISPLAY TIME >");
-            LcdPrintStringS(1,0,"2.ADJUST TIME ");
+            LcdPrintStringS(0,0,"1.DISPLAY TIME <");
+            LcdPrintStringS(1,0,"2.ADJUST TIME   ");
             break;
         case 2: 
-            LcdPrintStringS(0,0,"1.DISPLAY TIME ");
-            LcdPrintStringS(1,0,"2.ADJUST TIME  >");
+            LcdPrintStringS(0,0,"1.DISPLAY TIME  ");
+            LcdPrintStringS(1,0,"2.ADJUST TIME  <");
             break;
         case 3:
-            LcdPrintStringS(0,0,"3.SET TH.HOLD >");
-            LcdPrintStringS(1,0,"4.SET ADC");
+            LcdPrintStringS(0,0,"3.SET TH.HOLD  <");
+            LcdPrintStringS(1,0,"4.SET ADC       ");
             break;
         case 4:
-            LcdPrintStringS(0,0,"3.SET TH.HOLD ");
-            LcdPrintStringS(1,0,"4.SET ADC     >");
+            LcdPrintStringS(0,0,"3.SET TH.HOLD   ");
+            LcdPrintStringS(1,0,"4.SET ADC      <");
             break;
         case 5:
-            LcdPrintStringS(0,0,"5.SEE WARNING >");
-            LcdPrintStringS(1,0,"6.SET ALARM    ");
+            LcdPrintStringS(0,0,"5.SEE WARNING  <");
+            LcdPrintStringS(1,0,"6.SET ALARM     ");
             break;
         case 6:
-            LcdPrintStringS(0,0,"5.SEE WARNING  ");
-            LcdPrintStringS(1,0,"6.SET ALARM   >");
+            LcdPrintStringS(0,0,"5.SEE WARNING   ");
+            LcdPrintStringS(1,0,"6.SET ALARM    <");
             break;
         default: 
-            numberOfPushButton = 0;
+            index_menu = 0;
             break;
     }   
 }
@@ -132,34 +132,34 @@ void display_Set_Threshold() {
     switch(numberOfPushButton) {
         case 0: 
             LcdPrintStringS(0,0," SET THRESHOLD  ");
-            LcdPrintStringS(1,0,"      MODE      ");
+            LcdPrintStringS(1,0,"5: MAX    6: MIN");
             break;
         case 1: 
-            LcdPrintStringS(0,0,"SET PH T.H     >");
+            LcdPrintStringS(0,0,"SET PH T.H     <");
             LcdPrintStringS(1,0,"SET SS T.H      ");
             break;
         case 2: 
             LcdPrintStringS(0,0,"SET PH T.H      ");
-            LcdPrintStringS(1,0,"SET SS T.H     >");
+            LcdPrintStringS(1,0,"SET SS T.H     <");
             break;
         case 3:
-            LcdPrintStringS(0,0,"SET COD T.H     >");
-            LcdPrintStringS(1,0,"SET NH4 T.H      ");
+            LcdPrintStringS(0,0,"SET COD T.H    <");
+            LcdPrintStringS(1,0,"SET NH4 T.H     ");
             break;
         case 4:
-            LcdPrintStringS(0,0,"SET COD T.H      ");
-            LcdPrintStringS(1,0,"SET NH4 T.H     >");
+            LcdPrintStringS(0,0,"SET COD T.H     ");
+            LcdPrintStringS(1,0,"SET NH4 T.H    <");
             break;
         case 5:
-            LcdPrintStringS(0,0,"SET NO3 T.H    >");
+            LcdPrintStringS(0,0,"SET NO3 T.H    <");
             LcdPrintStringS(1,0,"SET TMP T.H     ");
             break;
         case 6:
             LcdPrintStringS(0,0,"SET NO3 T.H     ");
-            LcdPrintStringS(1,0,"SET TMP T.H    >");
+            LcdPrintStringS(1,0,"SET TMP T.H    <");
             break;
         case 7:
-            LcdPrintStringS(0,0,"SET FLOW T.H   >");
+            LcdPrintStringS(0,0,"SET FLOW T.H   <");
             break;
         default: 
             // overflow & underflow
@@ -176,31 +176,31 @@ void display_set_ADC() {
             LcdPrintStringS(1,0,"5: MAX     6:MIN");
             break;
         case 1: 
-            LcdPrintStringS(0,0,"SET PH ADC     >");
+            LcdPrintStringS(0,0,"SET PH ADC     <");
             LcdPrintStringS(1,0,"SET SS ADC      ");
             break;
         case 2: 
             LcdPrintStringS(0,0,"SET PH ADC      ");
-            LcdPrintStringS(1,0,"SET SS ADC     >");
+            LcdPrintStringS(1,0,"SET SS ADC     <");
             break;
         case 3:
-            LcdPrintStringS(0,0,"SET COD ADC     >");
-            LcdPrintStringS(1,0,"SET NH4 ADC      ");
+            LcdPrintStringS(0,0,"SET COD ADC    <");
+            LcdPrintStringS(1,0,"SET NH4 ADC     ");
             break;
         case 4:
-            LcdPrintStringS(0,0,"SET COD ADC      ");
-            LcdPrintStringS(1,0,"SET NH4 ADC     >");
+            LcdPrintStringS(0,0,"SET COD ADC     ");
+            LcdPrintStringS(1,0,"SET NH4 ADC    <");
             break;
         case 5:
-            LcdPrintStringS(0,0,"SET NO3 ADC    >");
+            LcdPrintStringS(0,0,"SET NO3 ADC    <");
             LcdPrintStringS(1,0,"SET TMP ADC     ");
             break;
         case 6:
             LcdPrintStringS(0,0,"SET NO3 ADC     ");
-            LcdPrintStringS(1,0,"SET TMP ADC    >");
+            LcdPrintStringS(1,0,"SET TMP ADC    <");
             break;
         case 7:
-            LcdPrintStringS(0,0,"SET FLOW ADC   >");
+            LcdPrintStringS(0,0,"SET FLOW ADC   <");
             break;
         default: 
             // overflow & underflow
@@ -222,30 +222,58 @@ void display_Warning() {
         LcdPrintStringS(0,0,"PH=  ");
         LcdPrintNumPercentS(0,6,pH_value);
         LcdPrintStringS(1,0,"PH CAO ");
+    } else if (pH_value < threshold_min[0]) {
+        LcdPrintStringS(0,0,"PH=  ");
+        LcdPrintNumPercentS(0,6,pH_value);
+        LcdPrintStringS(1,0,"PH THAP ");
     } else if (SS_value > threshold[1]) {
         LcdPrintStringS(0,0,"SS=  ");
         LcdPrintNumPercentS(0,6,SS_value);
         LcdPrintStringS(1,0,"SS CAO ");
+    } else if (SS_value < threshold_min[1]) {
+        LcdPrintStringS(0,0,"SS=  ");
+        LcdPrintNumPercentS(0,6,SS_value);
+        LcdPrintStringS(1,0,"SS THAP ");
     } else if (COD_value > threshold[2]) {
         LcdPrintStringS(0,0,"COD=  ");
         LcdPrintNumPercentS(0,6,COD_value);
         LcdPrintStringS(1,0,"COD CAO ");
+    } else if (COD_value < threshold_min[2]) {
+        LcdPrintStringS(0,0,"COD=  ");
+        LcdPrintNumPercentS(0,6,COD_value);
+        LcdPrintStringS(1,0,"COD THAP ");
     } else if (NH4_value > threshold[3]) {
         LcdPrintStringS(0,0,"NH4=  ");
         LcdPrintNumPercentS(0,6,NH4_value);
         LcdPrintStringS(1,0,"NH4 CAO ");
+    } else if (NH4_value < threshold_min[3]) {
+        LcdPrintStringS(0,0,"NH4=  ");
+        LcdPrintNumPercentS(0,6,NH4_value);
+        LcdPrintStringS(1,0,"NH4 THAP ");
     } else if (NO3_value > threshold[4]) {
         LcdPrintStringS(0,0,"NO3=  ");
         LcdPrintNumPercentS(0,6,NO3_value);
         LcdPrintStringS(1,0,"NO3 CAO ");
+    } else if (NO3_value < threshold_min[4]) {
+        LcdPrintStringS(0,0,"NO3=  ");
+        LcdPrintNumPercentS(0,6,NO3_value);
+        LcdPrintStringS(1,0,"NO3 THAP ");
     } else if (TMP_value > threshold[5]) {
         LcdPrintStringS(0,0,"TMP=  ");
         LcdPrintNumPercentS(0,6,TMP_value);
         LcdPrintStringS(1,0,"TMP CAO ");
+    } else if (TMP_value < threshold_min[5]) {
+        LcdPrintStringS(0,0,"TMP=  ");
+        LcdPrintNumPercentS(0,6,TMP_value);
+        LcdPrintStringS(1,0,"TMP THAP ");
     } else if (FLOW_value > threshold[6]) {
         LcdPrintStringS(0,0,"SS=  ");
         LcdPrintNumPercentS(0,6,FLOW_value);
-        LcdPrintStringS(1,0,"FLOW CAO ");
+        LcdPrintStringS(1,0,"FLOW MANH ");
+    } else if (FLOW_value < threshold_min[6]) {
+        LcdPrintStringS(0,0,"SS=  ");
+        LcdPrintNumPercentS(0,6,FLOW_value);
+        LcdPrintStringS(1,0,"FLOW YEU ");
     } else {
         LcdPrintStringS(0,0,"KHONG CANH BAO");
     }
@@ -455,6 +483,7 @@ void display_Setting_Alarm() {
         LcdPrintStringS(0,8,"_");
         LcdPrintStringS(0,9,"_");
     }
+    LcdPrintStringS(1,0,"4.Save  2.Cancel");
 }
 
 void display_Alarm(){
@@ -480,9 +509,9 @@ void display_Alarm(){
     }
     
     // save alarm value and switch to MODE1
-    if (key_code[1] >= 5 && key_code[1]%2 == 1){
+    if (key_code[4] >= 5 && key_code[4]%2 == 1){
         status = MODE_1;
-        key_code[1] = 0;
+        key_code[4] = 0;
     }
     display_Setting_Alarm();   
 } 

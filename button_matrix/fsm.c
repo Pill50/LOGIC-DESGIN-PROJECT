@@ -14,14 +14,14 @@ void fsm() {
             Read_time();           
             // switch to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
-                numberOfPushButton = 0;
                 index_menu = 0;
+                numberOfPushButton = 0;
                 status = MODE_2;
                 key_code[2]=0;
             }
             // display alarm watering
             if(hour == hour_alarm && minute == minute_alarm){
-                alarm_flag = 1;
+//                alarm_flag = 1;
                 timeBlink = (timeBlink+1)%10;
                 LcdClearS();                
                 if(timeBlink < 5 && enableBlink()) {
@@ -29,7 +29,7 @@ void fsm() {
                    LcdPrintStringS(1,0,"****************");
                 }
             } else {
-                alarm_flag = 0;
+//                alarm_flag = 0;
                 display_Time();
             }
             break;
@@ -37,50 +37,41 @@ void fsm() {
             LcdClearS();
             // see time
             if(key_code[4]>=5 && key_code[4]%2==1 && index_menu == 1) {
-                numberOfPushButton = 0;
-                index_menu = 0;
                 status = MODE_1;
                 key_code[4] = 0;
             }
             // adjust time
             if(key_code[4]>=5 && key_code[4]%2==1 && index_menu == 2) {
-                numberOfPushButton = 0;
-                index_menu = 0;
                 status = MODE_3;
                 key_code[4] = 0;
             }
             // set threshold
             if(key_code[4]>=5 && key_code[4]%2==1 && index_menu == 3) {
+                index_threshold = -1;
                 numberOfPushButton = 0;
                 status = MODE_4;
                 key_code[4] = 0;
             }
             // set adc
             if(key_code[4]>=5 && key_code[4]%2==1 && index_menu == 4) {
-                numberOfPushButton = 0;
-                index_menu = 0;
+                index_adc = -1;
                 status = MODE_5;
+                numberOfPushButton = 0;
                 key_code[4] = 0;
             }
             // see warning
             if(key_code[4]>=5 && key_code[4]%2==1 && index_menu == 5) {
-                numberOfPushButton = 0;
-                index_menu = 0;
                 status = MODE_6;
                 key_code[4] = 0;
             }
             // set alarm
             if(key_code[4]>=5 && key_code[4]%2==1 && index_menu == 6) {
-                numberOfPushButton = 0;
-                index_menu = 0;
                 status = MODE_7;
                 key_code[4] = 0;
             }
             // increase mode
             if(key_code[0]>=5 && key_code[0]%2==1) {
                 index_menu = (index_menu+1)%7;
-                numberOfPushButton = (numberOfPushButton+1)%7;
-                if(numberOfPushButton == 0) numberOfPushButton = 1;
                 if(index_menu == 0) index_menu = 1;
                 key_code[0] = 0;
             }
@@ -92,7 +83,7 @@ void fsm() {
             // swtich to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_2;
-                numberOfPushButton = 0;
+                index_menu = 0;
                 key_code[2] = 0;
             }
             break;
@@ -105,17 +96,24 @@ void fsm() {
                 key_code[0] = 0;
             }
             // switch to enter innput value
-            if(key_code[4]>=5 && key_code[4]%2==1) {
-                threshold_flag = 1;
+            if(key_code[5]>=5 && key_code[5]%2==1 && index_threshold >= 0) {
+                threshold_max_flag = 1;
                 input = threshold[index_threshold];
                 status = MODE_8;
-                key_code[4] = 0;
+                key_code[5] = 0;
+            }
+            if(key_code[6]>=5 && key_code[6]%2==1 && index_threshold >= 0) {
+                threshold_min_flag = 1;
+                input = threshold_min[index_threshold];
+                status = MODE_8;
+                key_code[6] = 0;
             }
             // swtich to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_2;
+                index_menu = 0;
                 numberOfPushButton = 0;
-                key_code[2];
+                key_code[2] = 0;
             }
             display_Set_Threshold();
             break;
@@ -130,18 +128,19 @@ void fsm() {
             // switch to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_2;
+                index_menu = 0;
                 numberOfPushButton = 0;
                 key_code[2] = 0;
             }
             // choose set max adc 
-            if(key_code[5]>=5 && key_code[5]%2==1) {
+            if(key_code[5]>=5 && key_code[5]%2==1 && index_adc >= 0) {
                 adc_max_flag = 1;
                 input = adc_max[index_adc];
                 status = MODE_8;
                 key_code[5] = 0;
             }
             // choose set min adc
-            if(key_code[6]>=5 && key_code[6]%2==1) {
+            if(key_code[6]>=5 && key_code[6]%2==1 && index_adc >= 0) {
                 adc_min_flag = 1;
                 input = adc_min[index_adc];
                 status = MODE_8;
@@ -153,6 +152,7 @@ void fsm() {
             // switch to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_2;
+                index_menu = 0;
                 numberOfPushButton = 0;
                 key_code[2] = 0;
             }
@@ -162,6 +162,7 @@ void fsm() {
             // switch to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_2;
+                index_menu = 0;
                 numberOfPushButton = 0;
                 key_code[2] = 0;
             }
@@ -177,9 +178,13 @@ void fsm() {
             // enter to save and switch to menu
             if(key_code[4]>=5 && key_code[4]%2==1) {
                 // SAVE
-                if(threshold_flag == 1) {
+                if(threshold_max_flag == 1) {
                     threshold[index_threshold] = input;
-                    threshold_flag = 0;
+                    threshold_max_flag = 0;
+                }
+                if(threshold_min_flag == 1) {
+                    threshold_min[index_threshold] = input;
+                    threshold_min_flag = 0;
                 }
                 if(adc_max_flag == 1) {
                     adc_max[index_adc] = input;
@@ -192,6 +197,8 @@ void fsm() {
                 status = MODE_2;
                 key_code[4] = 0;
             }
+            numberOfPushButton = 0;
+            index_menu = 0;
             index_threshold = 0;
             index_adc = 0;
             break;

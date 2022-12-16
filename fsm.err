@@ -6,11 +6,11 @@ Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_mat
 Warning[2054] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 29 : suspicious pointer conversion
 Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 33 : call of function without prototype
 Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 37 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 87 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 90 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 91 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 120 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 150 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 78 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 81 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 82 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 118 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 149 : call of function without prototype
 Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 159 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 168 : call of function without prototype
-Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 171 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 169 : call of function without prototype
+Warning[2058] E:\TKLL\Bai9_Uart_EMS_Sensor_Calib\LOGIC-DESGIN-PROJECT\button_matrix\fsm.c 172 : call of function without prototype

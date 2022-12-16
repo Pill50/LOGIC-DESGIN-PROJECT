@@ -36,7 +36,9 @@ extern int index_adc;
 extern int index_threshold;
 extern int index_menu;
 extern int alarm_flag;
-extern int threshold_flag;
+//extern int threshold_flag;
+extern int threshold_max_flag;
+extern int threshold_min_flag;
 extern int adc_max_flag;
 extern int adc_min_flag;
 extern int day_of_month[12];
@@ -98,6 +100,7 @@ extern unsigned int FLOW_value_max;
 //extern unsigned int TMP_value_threshold_1;
 //extern unsigned int FLOW_value_threshold_1;
 extern unsigned int threshold[7];
+extern unsigned int threshold_min[7];
 extern unsigned int adc_max[7];
 extern unsigned int adc_min[7];
 
