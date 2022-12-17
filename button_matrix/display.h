@@ -13,11 +13,12 @@
 #include "button.h"
 #include "clock.h"
 #include "../lcd/lcd.h"
+#include "../timer/timer.h"
 
 void display_Time();
 void display_Menu();
 void display_Set_Threshold();
-void display_input_val();
+void display_input_val(int option, int index, int cursor);
 void display_Warning();
 void display_Alarm();
 void display_Setting_Alarm();
@@ -29,6 +30,9 @@ void setDay();
 void setDate();
 void setMonth();
 void setYear();
+void display_sensor_val();
+void display_detail_sensor_val(int index, int value, int maxVal, int minVal);
+void display_menu_detail_sensor_val();
 
 #endif	/* DISPLAY_H */
 

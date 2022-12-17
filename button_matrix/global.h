@@ -19,6 +19,8 @@
 #define MODE_6 6
 #define MODE_7 7
 #define MODE_8 8
+#define MODE_9 9
+#define MODE_10 10
 
 #define SET_HOUR 12
 #define SET_MINUTE 13
@@ -35,6 +37,8 @@ extern int index_set;
 extern int index_adc;
 extern int index_threshold;
 extern int index_menu;
+extern int index_sensor;
+extern int index_warning;
 extern int alarm_flag;
 //extern int threshold_flag;
 extern int threshold_max_flag;
@@ -42,7 +46,7 @@ extern int threshold_min_flag;
 extern int adc_max_flag;
 extern int adc_min_flag;
 extern int day_of_month[12];
-extern char hour_alarm, minute_alarm;
+extern char hour_alarm, minute_alarm, hour_alarm1, minute_alarm1;
 extern int timeBlink;
 extern unsigned char enableBlink(void);
 

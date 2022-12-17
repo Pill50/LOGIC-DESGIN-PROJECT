@@ -7,6 +7,8 @@ int statusSetTime = 0;
 int index_set = 0;
 int index_adc = 0;
 int index_threshold = 0;
+int index_sensor = 0;
+int index_warning = 0;
 int index_menu = 0;
 int threshold_max_flag = 0;
 int threshold_min_flag = 0;
@@ -14,7 +16,7 @@ int alarm_flag = 0;
 int adc_max_flag = 0;
 int adc_min_flag = 0;
 int day_of_month[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
-char hour_alarm, minute_alarm;
+char hour_alarm = 0, minute_alarm = 0, hour_alarm1=0, minute_alarm1=0;
 int timeBlink = 0;
 unsigned char enableBlink(void) {
     if (key_code[8] == 0 && key_code[9] == 0)
@@ -77,7 +79,8 @@ unsigned int FLOW_value_max = 36000;
 //unsigned int TMP_value_threshold_1 = 0;
 //unsigned int FLOW_value_threshold_1 = 0;
 unsigned int threshold[7] = {800,8000,18000,3000,8000,4000,32000};
-unsigned int threshold_min[7] = {400,500,1000,1000,1000,2500,1000};
+unsigned int threshold_min[7] = {600,500,1000,1000,1000,2500,1000};
 unsigned int adc_max[7] = {2000,2000,2000,1000,2000,2000,2000};
 unsigned int adc_min[7] = {0,0,0,0,0,0,0};
+
 
