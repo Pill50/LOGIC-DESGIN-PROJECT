@@ -36,6 +36,7 @@ void GetSensorTMP(void);
 void GetSensorFLOW(void);
 void SimulateFull_Gimat(void);
 int flag_buzzer = 0;
+int flag_btn = 0;
 
 void main(void)
 {
@@ -45,12 +46,12 @@ void main(void)
     lcd_clear();
     LcdClearS();
     CloseOutput(0);
+    CloseOutput(1);
+    PORTBbits.RB0 = 1;
     delay_ms(1000);
     Set_Time();
-    
 	while (1)
-	{       
-        PORTCbits.RC2 = 0;
+	{    
         GetSensorPH();
         GetSensorSS();
         GetSensorCOD();
@@ -58,27 +59,47 @@ void main(void)
         GetSensorNO3();
         GetSensorTMP();
         GetSensorFLOW();
-                    
-        if(hour == hour_alarm && minute == minute_alarm) {
+               
+        if(hour == hour_alarm && minute == minute_alarm && alarm_flag == 1) {
             // start motor
             OpenOutput(0);
         }
-        else if (hour == hour_alarm1 && minute == minute_alarm1) {
+        
+        if (hour == hour_alarm1 && minute == minute_alarm1) {
             // end motor
             CloseOutput(0);
-        }
+        } 
         
         if(flag_timer3 == 1) {
             SetTimer3_ms(50);
             scan_key_matrix();
-            // close buzzer
-            if(PORTCbits.RC2 == 1 && key_code[1]>=5 && key_code[1]%2==1) {
-                PORTCbits.RC2 = 0;
-                flag_buzzer = 1;
-                key_code[1] = 0;
+            // open buzzer
+            if(flag_buzzer == 1 && flag_btn == 0) {
+                PORTBbits.RB0 = 0;        
+                OpenOutput(1);
+                if(key_code[1]>=5 && key_code[1]%2==1) {
+                    status = INIT;
+                    PORTBbits.RB0 = 1;
+                    flag_btn = 1;
+                    flag_buzzer = 0;
+                    key_code[1] = 0;
+                }
             } 
+            if(flag_buzzer == 0 && status == MODE_6) {
+                CloseOutput(1);
+                flag_btn = 0;
+                status = INIT;
+            }
+            
+            if(key_code[1]>=5 && key_code[1]%2==1) {
+                if(flag_btn == 1) {
+                   PORTBbits.RB0 = 1;
+                   flag_btn = 0;                   
+                }
+                key_code[1] = 0;   
+            }            
             fsm();
-            SimulateFull_Gimat();            
+            SimulateFull_Gimat();
         }
             
         DisplayLcdScreen();
@@ -96,7 +117,7 @@ void init_system(void)
 {
     TRISB = 0x00;		//setup PORTB is output
     TRISA = 0x00;
-    TRISC = 0x00;
+//    TRISC = 0x00;
     init_lcd();
     TRISD = 0x00;
     LED = 0x00;
@@ -335,9 +356,10 @@ void SimulateFull_Gimat(void)
            TMP_value > threshold[5] || TMP_value < threshold_min[5] ||
            FLOW_value > threshold[6] || FLOW_value < threshold_min[6]
         ) {
-            if(flag_buzzer == 0) {
-                PORTCbits.RC2 = 1;
-            }
+            status = MODE_6;
+            flag_buzzer = 1;
+        } else {
+            flag_buzzer = 0;
         }
         // end buzzer
         

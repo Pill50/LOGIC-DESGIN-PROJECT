@@ -1,6 +1,7 @@
 #include "display.h"
 
 char* label[7] = {"PH","SS", "COD", "NH4", "NO3", "TMP", "FLW"};
+int flag_warning = 0;
 
 void display_Time() {
 //    LcdClearS();
@@ -273,17 +274,24 @@ void display_input_val(int option, int index, int cursor) {
 
 void display_Warning() {
     LcdClearS();
+    flag_warning = 0;
     if(index_warning == 0) {
         if(pH_value > threshold[0]) {
             LcdPrintStringS(0,0,"PH=  ");
             LcdPrintNumPercentS(0,6,pH_value);
             LcdPrintStringS(1,0,"PH CAO ");
+            LcdPrintStringS(0,13,"MAX");
+            LcdPrintNumPercentS(1,10,threshold[0]);
+            flag_warning = 1;
         } else if (pH_value < threshold_min[0]) {
             LcdPrintStringS(0,0,"PH=  ");
             LcdPrintNumPercentS(0,6,pH_value);
             LcdPrintStringS(1,0,"PH THAP ");
+            LcdPrintStringS(0,13,"MIN");
+            LcdPrintNumPercentS(1,10,threshold_min[0]);
+            flag_warning = 1;
         } else {
-            LcdPrintStringS(0,0,"PH ON DINH");
+            index_warning++;
         }
     }
     if(index_warning == 1) {
@@ -291,12 +299,18 @@ void display_Warning() {
             LcdPrintStringS(0,0,"SS=  ");
             LcdPrintNumPercentS(0,6,SS_value);
             LcdPrintStringS(1,0,"SS CAO ");
+            LcdPrintStringS(0,13,"MAX");
+            LcdPrintNumPercentS(1,10,threshold[1]);
+            flag_warning = 1;
         } else if (SS_value < threshold_min[1]) {
             LcdPrintStringS(0,0,"SS=  ");
             LcdPrintNumPercentS(0,6,SS_value);
             LcdPrintStringS(1,0,"SS THAP ");
+            LcdPrintStringS(0,13,"MIN");
+            LcdPrintNumPercentS(1,10,threshold_min[1]);
+            flag_warning = 1;
         } else {
-            LcdPrintStringS(0,0,"SS ON DINH");
+            index_warning++;
         }
     }
     if(index_warning == 2) {
@@ -304,12 +318,18 @@ void display_Warning() {
             LcdPrintStringS(0,0,"COD=  ");
             LcdPrintNumPercentS(0,6,COD_value);
             LcdPrintStringS(1,0,"COD CAO ");
+            LcdPrintStringS(0,13,"MAX");
+            LcdPrintNumPercentS(1,10,threshold[2]);
+            flag_warning = 1;
         } else if (COD_value < threshold_min[2]) {
             LcdPrintStringS(0,0,"COD=  ");
             LcdPrintNumPercentS(0,6,COD_value);
             LcdPrintStringS(1,0,"COD THAP ");
+            LcdPrintStringS(0,13,"MIN");
+            LcdPrintNumPercentS(1,10,threshold_min[2]);
+            flag_warning = 1;
         } else {
-            LcdPrintStringS(0,0,"COD ON DINH");
+            index_warning++;
         }
     }
     if(index_warning == 3) {
@@ -317,12 +337,18 @@ void display_Warning() {
             LcdPrintStringS(0,0,"NH4=  ");
             LcdPrintNumPercentS(0,6,NH4_value);
             LcdPrintStringS(1,0,"NH4 CAO ");
+            LcdPrintStringS(0,13,"MAX");
+            LcdPrintNumPercentS(1,10,threshold[3]);
+            flag_warning = 1;
         } else if (NH4_value < threshold_min[3]) {
             LcdPrintStringS(0,0,"NH4=  ");
             LcdPrintNumPercentS(0,6,NH4_value);
             LcdPrintStringS(1,0,"NH4 THAP ");
+            LcdPrintStringS(0,13,"MIN");
+            LcdPrintNumPercentS(1,10,threshold_min[3]);
+            flag_warning = 1;
         } else {
-            LcdPrintStringS(0,0,"NH4 ON DINH");
+            index_warning++;
         }
     }
     if(index_warning == 4) {
@@ -330,12 +356,18 @@ void display_Warning() {
             LcdPrintStringS(0,0,"NO3=  ");
             LcdPrintNumPercentS(0,6,NO3_value);
             LcdPrintStringS(1,0,"NO3 CAO ");
+            LcdPrintStringS(0,13,"MAX");
+            LcdPrintNumPercentS(1,10,threshold[4]);
+            flag_warning = 1;
         } else if (NO3_value < threshold_min[4]) {
             LcdPrintStringS(0,0,"NO3=  ");
             LcdPrintNumPercentS(0,6,NO3_value);
             LcdPrintStringS(1,0,"NO3 THAP ");
+            LcdPrintStringS(0,13,"MIN");
+            LcdPrintNumPercentS(1,10,threshold_min[4]);
+            flag_warning = 1;
         } else {
-            LcdPrintStringS(0,0,"NO3 ON DINH");
+            index_warning++;
         }
     }
     if(index_warning == 5) {
@@ -343,30 +375,46 @@ void display_Warning() {
             LcdPrintStringS(0,0,"TMP=  ");
             LcdPrintNumPercentS(0,6,TMP_value);
             LcdPrintStringS(1,0,"TMP CAO ");
+            LcdPrintStringS(0,13,"MAX");
+            LcdPrintNumPercentS(1,10,threshold[5]);
+            flag_warning = 1;
         } else if (TMP_value < threshold_min[5]) {
             LcdPrintStringS(0,0,"TMP=  ");
             LcdPrintNumPercentS(0,6,TMP_value);
             LcdPrintStringS(1,0,"TMP THAP ");
+            LcdPrintStringS(0,13,"MIN");
+            LcdPrintNumPercentS(1,10,threshold_min[5]);
+            flag_warning = 1;
         } else {
-            LcdPrintStringS(0,0,"TMP ON DINH");
+            index_warning++;
         }
     }
     if(index_warning == 6) {
         if (FLOW_value > threshold[6]) {
-            LcdPrintStringS(0,0,"SS=  ");
+            LcdPrintStringS(0,0,"FLW=  ");
             LcdPrintNumPercentS(0,6,FLOW_value);
             LcdPrintStringS(1,0,"FLOW MANH ");
+            LcdPrintStringS(0,13,"MAX");
+            LcdPrintNumPercentS(1,10,threshold[6]);
+            flag_warning = 1;
         } else if (FLOW_value < threshold_min[6]) {
-            LcdPrintStringS(0,0,"SS=  ");
+            LcdPrintStringS(0,0,"FLW=  ");
             LcdPrintNumPercentS(0,6,FLOW_value);
             LcdPrintStringS(1,0,"FLOW YEU ");
+            LcdPrintStringS(0,13,"MIN");
+            LcdPrintNumPercentS(1,10,threshold_min[6]);
+            flag_warning = 1;
         } else {
-            LcdPrintStringS(0,0,"FLOW ON DINH");
+            index_warning++;
         }
     }
+    if(index_warning == 7 && flag_warning == 1) {
+        LcdPrintStringS(0,0,"KHONG CANH BAO");
+    }
+    
     if(flag_timer1 == 1) {
-        SetTimer1_ms(5000);
-        index_warning = (index_warning+1)%7;
+        SetTimer1_ms(2500);
+        index_warning = (index_warning+1)%8;
     }
 }
 
@@ -598,16 +646,16 @@ void display_Alarm(){
     }
    
     // increase alarm value
-    if (key_code[8] >= 5 && key_code[8]%2 == 1){
+    if (key_code[5] >= 5 && key_code[5]%2 == 1){
         if(index_set == 0) hour_alarm = (hour_alarm+1)%24;
         if(index_set == 1) minute_alarm = (minute_alarm+1)%60;
         if(index_set == 2) hour_alarm1 = (hour_alarm1+1)%24;
         if(index_set == 3) minute_alarm1 = (minute_alarm1+1)%60;
-        key_code[8] = 0;
+        key_code[5] = 0;
     }
     
     // decrease alarm value
-    if (key_code[9] >= 5 && key_code[9]%2 == 1){
+    if (key_code[6] >= 5 && key_code[6]%2 == 1){
         if(index_set == 0) hour_alarm--;
         if(index_set == 1) minute_alarm--;
         if(index_set == 2) hour_alarm1--;
@@ -616,12 +664,13 @@ void display_Alarm(){
         if(hour_alarm1 < 0) hour_alarm1 = 23;
         if(minute_alarm < 0) minute_alarm = 59;
         if(minute_alarm1 < 0) minute_alarm1 = 59;
-        key_code[9] = 0;
+        key_code[6] = 0;
     }
     
     // save alarm value and switch to MODE1
     if (key_code[4] >= 5 && key_code[4]%2 == 1){
         status = MODE_1;
+        alarm_flag = 1;
         key_code[4] = 0;
     }
     display_Setting_Alarm();   

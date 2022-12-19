@@ -18,7 +18,7 @@ void fsm() {
             // swtich to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_1;
-                SetTimer1_ms(50000);
+                SetTimer1_ms(20000);
                 index_menu = 0;
                 numberOfPushButton = 0;
                 key_code[2] = 0;
@@ -73,7 +73,7 @@ void fsm() {
             if(key_code[0]>=5 && key_code[0]%2==1) {
                 index_menu = (index_menu+1)%8;
                 if(index_menu == 0) index_menu = 1;
-                SetTimer1_ms(50000);
+                SetTimer1_ms(20000);
                 key_code[0] = 0;
             }
             // if dont do anything after 5s
@@ -102,7 +102,7 @@ void fsm() {
             // swtich to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_1;
-                SetTimer1_ms(50000);
+                SetTimer1_ms(20000);
                 index_menu = 0;
                 numberOfPushButton = 0;
                 key_code[2] = 0;
@@ -125,7 +125,7 @@ void fsm() {
             // swtich to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_1;
-                SetTimer1_ms(50000);
+                SetTimer1_ms(20000);
                 index_menu = 0;
                 numberOfPushButton = 0;
                 key_code[2] = 0;
@@ -143,7 +143,7 @@ void fsm() {
             // switch to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_1;
-                SetTimer1_ms(50000);
+                SetTimer1_ms(20000);
                 index_menu = 0;
                 numberOfPushButton = 0;
                 key_code[2] = 0;
@@ -160,7 +160,7 @@ void fsm() {
             // switch to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_1;
-                SetTimer1_ms(50000);
+                SetTimer1_ms(20000);
                 index_menu = 0;
                 numberOfPushButton = 0;
                 key_code[2] = 0;
@@ -171,7 +171,7 @@ void fsm() {
             // switch to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_1;
-                SetTimer1_ms(50000);
+                SetTimer1_ms(20000);
                 index_menu = 0;
                 numberOfPushButton = 0;
                 key_code[2] = 0;
@@ -184,7 +184,7 @@ void fsm() {
             // switch to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_1;
-                SetTimer1_ms(50000);
+                SetTimer1_ms(20000);
                 index_menu = 0;
                 numberOfPushButton = 0;
                 key_code[2] = 0;
@@ -209,7 +209,7 @@ void fsm() {
             // swtich to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_1;
-                SetTimer1_ms(50000);
+                SetTimer1_ms(20000);
                 index_menu = 0;
                 numberOfPushButton = 0;
                 key_code[2] = 0;
@@ -272,7 +272,7 @@ void fsm() {
             // save and switch to menu
             if(key_code[2]>=5 && key_code[2]%2==1) {
                 status = MODE_1;
-                SetTimer1_ms(50000);
+                SetTimer1_ms(20000);
                 index_menu = 0;
                 numberOfPushButton = 0;
                 index_threshold = 0;
@@ -299,7 +299,7 @@ void fsm() {
                     display_detail_sensor_val(4,NO3_value,NO3_value_max,NO3_value_min);
                     break;
                 case 5:
-                    display_detail_sensor_val(5,TMP_value,TMP_adc_max,TMP_value_min);
+                    display_detail_sensor_val(5,TMP_value,TMP_value_max,TMP_value_min);
                     break;
                 case 6:
                     display_detail_sensor_val(6,FLOW_value,FLOW_value_max,FLOW_value_min);
